@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+
+.font-french {
+  font-family: "La Belle Aurore", cursive;
+}
+#root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #f4f4f4;
+  background-color: rgba(255, 255, 255, 0.027);
+  font-weight: 300;
+}
+
+/*main section*/
+.font-logo {
+  color: #ebebeb;
+  transition: 0.5s;
+}
+.font-logo:hover {
+  color: #1976d2;
+}
+
+.font-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+.text-main-section {
+  color: #bdbdbd;
+  padding: 25px;
+  width: 500px;
+  overflow: hidden;
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 0px #3f51b5;
+    opacity: 0.4;
+  }
+  50% {
+    text-shadow: 0 0 8px #3f51b5;
+    opacity: 1;
+  }
+  100% {
+    text-shadow: 0 0 0px #3f51b5;
+    opacity: 0.4;
+  }
+}
+/*end main section*/
+
+/*projct section*/
+.card-project {
+  border: 1px solid #1976d2;
+  padding: 5px;
+  height: 330px;
+  transition: 0.5s;
+}
+.card-project:hover {
+  transform: translateY(-10px);
+}
+.eye-btn {
+  transition: 0.5s;
+  color: #1976d2;
+}
+.eye-btn:hover {
+  color: #ffff;
+}
+.github-btn:hover {
+  color: #ffff;
+}
+.card-tools {
+  background-color: #444;
+  transition: 0.5s;
+}
+.card-tools:hover {
+  color: #ddd;
+  background-color: #444;
+}
+img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+.title-card:hover {
+  color: #ddd;
+}
+.title-card {
+  transition: 0.5s;
+}
+/*end projct section*/
+
+/*tools section*/
+.tools-skils {
+  transition: 0.5s;
+}
+.tools-skils:hover {
+  color: #353f7c;
+}
+/*end tools section*/
+
+/*server section*/
+.jhc{
+  background-color: #1f212c9d;
+}
+
+/*end server section*/
