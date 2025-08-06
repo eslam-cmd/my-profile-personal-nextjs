@@ -17,7 +17,11 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Footer from "../components/Ultimits/footer";
 import HomeIcon from "@mui/icons-material/Home";
+<<<<<<< HEAD
 import LinkIcon from "@mui/icons-material/Link";
+=======
+import LinkIcon from '@mui/icons-material/Link';
+>>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
 export default function ProjectSection() {
   const projects = [
     {
@@ -100,11 +104,17 @@ export default function ProjectSection() {
       linkgithub: "https://github.com/eslam-cmd/Tea-Project",
       tech: "htmlcss",
     },
+<<<<<<< HEAD
   ];
   export const metadata = {
     title: "قسم المشاريع | Islam Hadaya",
     description: "صفحة لعرض المشاريع التي تم تنفيذها باستخدام تقنيات حديثة",
   };
+=======
+    
+  ];
+
+>>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -149,7 +159,11 @@ export default function ProjectSection() {
         </Typography>
         <Button
           variant="contained"
+<<<<<<< HEAD
           startIcon={<HomeIcon />}
+=======
+          startIcon={<HomeIcon />} 
+>>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
           sx={{
             width: "100%",
             backgroundColor: "#1976d2",
@@ -162,10 +176,20 @@ export default function ProjectSection() {
               backgroundColor: "#1565c0",
             },
           }}
+<<<<<<< HEAD
         >
           <Link href="/" style={{ color: "#38bdf8", textDecoration: "none" }}>
             Go to home page
           </Link>
+=======
+        ><Link
+            href="/"
+            style={{ color: "#38bdf8", textDecoration: "none" }}
+          >
+           Go to home page
+          </Link>
+        
+>>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
         </Button>
 
         <Grid

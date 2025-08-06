@@ -4,7 +4,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
+<<<<<<< HEAD
 
+=======
+import ButtonGroup from '@mui/material/ButtonGroup';
+>>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
 export default function ContactSection() {
   return (
     <section id="contact" style={{ margin: "70px 0" }}>
