@@ -1,0 +1,119 @@
+"use client";
+
+import * as React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+
+export default function Header({ toggleTheme, darkMode }) {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const pages =
+    pathname === "/contact"
+      ? [{ name: "Home", link: "/" }]
+      : [
+          { name: "HOME", link: "#home" },
+          { name: "SKILS & TOOLS", link: "#skills" },
+          { name: "PORTFOLIO", link: "/projectpage" },
+          { name: "CONTACT", link: "/contactpage" },
+        ];
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleNavigate = (link) => {
+    setAnchorElNav(null);
+    if (link.startsWith("#")) {
+      const id = link.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(link);
+    }
+  };
+
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        bgcolor: darkMode ? "#212121" : "#5c6bc0",
+        marginX: "auto",
+        marginY: 2,
+        maxWidth: "95%",
+        borderRadius: 2,
+        boxShadow: 3,
+        border: ".5px #fff solid",
+      }}
+    >
+      <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
+        <Typography
+          variant="h6"
+          sx={{ textDecoration: "none" }}
+          className="font-logo"
+        >
+          Islam Hadaya
+        </Typography>
+        <IconButton
+          onClick={handleOpenNavMenu}
+          color="inherit"
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          anchorEl={anchorElNav}
+          open={Boolean(anchorElNav)}
+          onClose={handleCloseNavMenu}
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          {pages.map((page) => (
+            <MenuItem key={page.name} onClick={() => handleNavigate(page.link)}>
+              <Typography sx={{ color: "inherit" }}>{page.name}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+        <Toolbar sx={{ display: { xs: "none", md: "flex" } }}>
+          {pages.map((page) => (
+            <Typography
+              key={page.name}
+              onClick={() => handleNavigate(page.link)}
+              sx={{
+                cursor: "pointer",
+                color: "#ddd",
+                marginX: 2,
+                transition: ".5s",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "white",
+                },
+              }}
+            >
+              {page.name}
+            </Typography>
+          ))}
+        </Toolbar>
+
+        <IconButton onClick={toggleTheme} color="inherit">
+          {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+  );
+}
