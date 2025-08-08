@@ -41,6 +41,7 @@ export default function MainSection() {
               gap: 0.5,
               flexWrap: "wrap",
               justifyContent: "center",
+              fontFamily: "'Lobster', cursive",
             }}
           >
             {"Islam Hadaya".split("").map((char, index) => (
@@ -112,7 +113,7 @@ export default function MainSection() {
               }}
             >
               <Link
-                href="/projectpage"
+                href="/projects"
                 style={{ color:"#222", textDecoration: "none" }}
               >
                 View Projects

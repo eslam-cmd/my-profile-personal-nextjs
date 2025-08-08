@@ -1,17 +1,24 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense, lazy } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Box } from "@mui/material";
+
+// مكونات رئيسية
 import Header from "./components/Ultimits/header";
-import MainSection from "./Pages/MainSection/page";
-import ToolsSection from "./Pages/ToolsSection/page";
-import ProjectSection from "./projectpage/page";
 import Footer from "./components/Ultimits/footer";
 import LoadingScreen from "./components/Ultimits/loading";
+
+// أقسام الصفحة
+import MainSection from "./Pages/MainSection/page";
+import ToolsSection from "./Pages/ToolsSection/page";
 import ServiceSection from "./Pages/Servers Section/page";
 import ExpandSdservices from "./Pages/Expand sdservices/page";
 import ContactSection from "./Pages/ContactSection/page";
+
+// تحميل كسول للمكونات الثقيلة
+
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -19,13 +26,14 @@ export default function Home() {
 
   const toggleTheme = () => setDarkMode((prev) => !prev);
 
+  // إنشاء الثيم حسب الوضع
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
           mode: darkMode ? "dark" : "light",
           background: {
-            default: darkMode ? "url('/dark.png')" : "url('/light.png')",
+            default: darkMode ? "#121212" : "#f5f5f5",
           },
           text: {
             primary: darkMode ? "#ddd" : "#282828",
@@ -35,33 +43,18 @@ export default function Home() {
     [darkMode]
   );
 
+  // شاشة التحميل حسب تحميل الصفحة
   useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timeout);
-  }, []);
+    const handleLoad = () => setLoading(false);
 
-  useEffect(() => {
-    document.body.style.background = `url('${darkMode ? "dark.png" : "light.png"}')`;
-    document.body.style.color = darkMode ? "#AAA" : "#282828";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundAttachment = "fixed";
-    document.body.style.transition = "background 0.5s ease-in-out";
-
-    if (!darkMode) {
-      const blurLayer = document.createElement("div");
-      blurLayer.style.position = "absolute";
-      blurLayer.style.top = "0";
-      blurLayer.style.left = "0";
-      blurLayer.style.width = "100%";
-      blurLayer.style.height = "100%";
-      blurLayer.style.zIndex = "-1";
-      document.body.appendChild(blurLayer);
-
-      return () => {
-        document.body.removeChild(blurLayer);
-      };
+    if (document.readyState === "complete") {
+      setLoading(false);
+    } else {
+      window.addEventListener("load", handleLoad);
     }
-  }, [darkMode]);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -69,16 +62,30 @@ export default function Home() {
       {loading ? (
         <LoadingScreen />
       ) : (
-        <>
+        <Box
+          sx={{
+            backgroundImage: `url(${darkMode ? "/dark.png" : "/light.png"})`,
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            transition: "background 0.5s ease-in-out",
+            minHeight: "100vh",
+            color: darkMode ? "#AAA" : "#282828",
+          }}
+        >
           <Header toggleTheme={toggleTheme} darkMode={darkMode} />
           <MainSection />
           <ToolsSection />
-          <ServiceSection/>
-          <ExpandSdservices/>
-          {/* <ProjectSection />*/}
+          <ServiceSection />
+          <ExpandSdservices />
+          <Suspense
+            fallback={
+              <div style={{ textAlign: "center" }}>Loading Projects...</div>
+            }
+          >
+          </Suspense>
           <ContactSection />
           <Footer />
-        </>
+        </Box>
       )}
     </ThemeProvider>
   );

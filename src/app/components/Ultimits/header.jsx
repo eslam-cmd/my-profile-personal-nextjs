@@ -12,9 +12,11 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-
+<link
+  href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+  rel="stylesheet"
+></link>;
 export default function Header({ toggleTheme, darkMode }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pathname = usePathname();
@@ -26,7 +28,7 @@ export default function Header({ toggleTheme, darkMode }) {
       : [
           { name: "HOME", link: "#home" },
           { name: "SKILS & TOOLS", link: "#skills" },
-          { name: "PORTFOLIO", link: "/projectpage" },
+          { name: "PORTFOLIO", link: "/projects" },
           { name: "CONTACT", link: "/contactpage" },
         ];
 
@@ -65,8 +67,12 @@ export default function Header({ toggleTheme, darkMode }) {
       <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
         <Typography
           variant="h6"
-          sx={{ textDecoration: "none" }}
-          className="font-logo"
+          sx={{
+            fontFamily: "'Lobster', cursive",
+            fontSize: "32px",
+            color: "#fff",
+            textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+          }}
         >
           Islam Hadaya
         </Typography>
@@ -85,7 +91,7 @@ export default function Header({ toggleTheme, darkMode }) {
         >
           {pages.map((page) => (
             <MenuItem key={page.name} onClick={() => handleNavigate(page.link)}>
-              <Typography sx={{ color: "inherit" }}>{page.name}</Typography>
+              <Typography sx={{ color: "inherit",  }}>{page.name}</Typography>
             </MenuItem>
           ))}
         </Menu>
@@ -100,6 +106,7 @@ export default function Header({ toggleTheme, darkMode }) {
                 marginX: 2,
                 transition: ".5s",
                 textDecoration: "none",
+                fontWeight:"500",
                 "&:hover": {
                   color: "white",
                 },

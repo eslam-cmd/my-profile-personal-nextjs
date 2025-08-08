@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Node modules
 node_modules/
 
@@ -23,7 +23,7 @@ yarn-error.log*
 # OS-specific
 .DS_Store
 Thumbs.db
-=======
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -65,4 +65,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
->>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225

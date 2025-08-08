@@ -11,110 +11,85 @@ import Grid from "@mui/material/Grid";
 import { Typography, IconButton, Box, useMediaQuery } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Footer from "../components/Ultimits/footer";
 import HomeIcon from "@mui/icons-material/Home";
-<<<<<<< HEAD
 import LinkIcon from "@mui/icons-material/Link";
-=======
-import LinkIcon from '@mui/icons-material/Link';
->>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
-export default function ProjectSection() {
-  const projects = [
-    {
-      id: 1,
-      title: "Weather App React",
-      description:
-        "An interactive weather application built with React that provides real-time climate data for cities around the world.",
-      photo: "imgweatherreact.png",
-      linkview: "https://eslam-cmd.github.io/Weather-App-React/",
-      linkgithub: "https://github.com/eslam-cmd/Weather-App-React",
-      tech: "react",
-    },
-    {
-      id: 2,
-      title: "Travel and Tourism",
-      description:
-        "A visually engaging website that highlights famous travel destinations across the globe with smooth and simple navigation.",
-      photo: "imgtravel.png",
-      linkview: "https://eslam-cmd.github.io/A-site-for-tourism-and-travel/",
-      linkgithub: "https://github.com/eslam-cmd/A-site-for-tourism-and-travel",
-      tech: "htmlcss",
-    },
-    {
-      id: 3,
-      title: "Prays Times",
-      description:
-        "A straightforward site that displays accurate prayer times across Syrian governorates, updated automatically.",
-      photo: "prays-times.png",
-      linkview: "https://eslam-cmd.github.io/Prays-Times/",
-      linkgithub: "https://github.com/eslam-cmd/Prays-Times",
-      tech: "react",
-    },
-    {
-      id: 4,
-      title: "Weather Wep",
-      description:
-        "A simple weather tool that shows the temperature in any selected country using vanilla HTML, CSS, and JavaScript.",
-      photo: "imgweather.jpg",
-      linkview: "https://eslam-cmd.github.io/weather-wep/",
-      linkgithub: "https://github.com/eslam-cmd/weather-wep",
-      tech: "htmlcssjs",
-    },
-    {
-      id: 5,
-      title: "Hospital Wep",
-      description:
-        "A hospital portal that provides information about departments, doctors, and allows users to book medical appointments easily.",
-      photo: "imghospital.jpg",
-      linkview: "https://eslam-cmd.github.io/hospital/",
-      linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
-      tech: "htmlcssjs",
-    },
-    {
-      id: 6,
-      title: "E-Commerce",
-      description:
-        "A full-featured e-commerce site built with React, including product browsing, shopping cart, and secure checkout features.",
-      photo: "imgecommerce.png",
-      linkview: "https://eslam-cmd.github.io/E-Commerce/",
-      linkgithub: "https://github.com/eslam-cmd/E-Commerce",
-      tech: "react",
-    },
-    {
-      id: 7,
-      title: "E-Learning",
-      description:
-        "A modern educational platform showcasing courses or learning content, designed using React.",
-      photo: "imgelearining.png",
-      linkview: "https://eslam-cmd.github.io/hospital/",
-      linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
-      tech: "react",
-    },
-    {
-      id: 8,
-      title: "Tea-Project",
-      description:
-        "A charming website dedicated to tea lovers, featuring different types of tea, pricing, and an aesthetic layout.",
-      photo: "imgtea.png",
-      linkview: "https://eslam-cmd.github.io/Tea-Project/",
-      linkgithub: "https://github.com/eslam-cmd/Tea-Project",
-      tech: "htmlcss",
-    },
-<<<<<<< HEAD
-  ];
-  export const metadata = {
-    title: "قسم المشاريع | Islam Hadaya",
-    description: "صفحة لعرض المشاريع التي تم تنفيذها باستخدام تقنيات حديثة",
-  };
-=======
-    
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "Weather App React",
+    description:
+      "An interactive weather application built with React that provides real-time climate data for cities around the world.",
+    photo: "imgweatherreact.png",
+    linkview: "https://eslam-cmd.github.io/Weather-App-React/",
+    linkgithub: "https://github.com/eslam-cmd/Weather-App-React",
+    tech: "react",
+  },
+ 
+  {
+    id: 3,
+    title: "Prays Times",
+    description:
+      "A straightforward site that displays accurate prayer times across Syrian governorates, updated automatically.",
+    photo: "prays-times.png",
+    linkview: "https://eslam-cmd.github.io/Prays-Times/",
+    linkgithub: "https://github.com/eslam-cmd/Prays-Times",
+    tech: "react",
+  },
 
->>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
+  {
+    id: 5,
+    title: "Hospital Wep",
+    description:
+      "A hospital portal that provides information about departments, doctors, and allows users to book medical appointments easily.",
+    photo: "imghospital.jpg",
+    linkview: "https://eslam-cmd.github.io/hospital/",
+    linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
+    tech: "htmlcssjs",
+  },
+  {
+    id: 6,
+    title: "E-Commerce",
+    description:
+      "A full-featured e-commerce site built with React, including product browsing, shopping cart, and secure checkout features.",
+    photo: "imgecommerce.png",
+    linkview: "https://eslam-cmd.github.io/E-Commerce/",
+    linkgithub: "https://github.com/eslam-cmd/E-Commerce",
+    tech: "react",
+  },
+  {
+    id: 7,
+    title: "E-Learning",
+    description:
+      "A modern educational platform showcasing courses or learning content, designed using React.",
+    photo: "imgelearining.png",
+    linkview: "https://eslam-cmd.github.io/hospital/",
+    linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
+    tech: "react",
+  },
+  {
+    id: 8,
+    title: "Tea-Project",
+    description:
+      "A charming website dedicated to tea lovers, featuring different types of tea, pricing, and an aesthetic layout.",
+    photo: "imgtea.png",
+    linkview: "https://eslam-cmd.github.io/Tea-Project/",
+    linkgithub: "https://github.com/eslam-cmd/Tea-Project",
+    tech: "htmlcss",
+  },
+  {
+    id: 9,
+    title: "Nutritional supplements store",
+    description:
+      "SportUp is a fast, modern website for selling supplements and healthy products. Built with Next.js, React, Tailwind CSS, and Supabase. Simple design, smooth experience, smart product organization.",
+    photo: "E-commerce-next.png",
+    linkview: "https://eslam-cmd.github.io/Tea-Project/",
+    linkgithub: "https://github.com/eslam-cmd/Tea-Project",
+    tech: "next",
+  },
+];
+export default function Projects() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -159,11 +134,7 @@ export default function ProjectSection() {
         </Typography>
         <Button
           variant="contained"
-<<<<<<< HEAD
           startIcon={<HomeIcon />}
-=======
-          startIcon={<HomeIcon />} 
->>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
           sx={{
             width: "100%",
             backgroundColor: "#1976d2",
@@ -176,20 +147,10 @@ export default function ProjectSection() {
               backgroundColor: "#1565c0",
             },
           }}
-<<<<<<< HEAD
         >
-          <Link href="/" style={{ color: "#38bdf8", textDecoration: "none" }}>
+          <Link href="/" style={{ color: "#ddd", textDecoration: "none" }}>
             Go to home page
           </Link>
-=======
-        ><Link
-            href="/"
-            style={{ color: "#38bdf8", textDecoration: "none" }}
-          >
-           Go to home page
-          </Link>
-        
->>>>>>> f86b06ac7a4f04cd3124ba1d61cd3c401d0c6225
         </Button>
 
         <Grid
