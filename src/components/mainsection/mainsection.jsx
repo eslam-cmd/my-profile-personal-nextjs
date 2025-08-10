@@ -35,7 +35,7 @@ export default function MainSection() {
               sx={{
                 width: 230,
                 height: 230,
-                boxShadow: "0 4px 12px rgba(212, 175, 55, 0.3)",
+                boxShadow: "0 6px 58px rgba(212, 175, 55, 0.3)",
            
                 border: "2px solid #D4AF37",
                 "&:hover": {
