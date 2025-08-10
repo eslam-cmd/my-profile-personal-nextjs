@@ -92,7 +92,11 @@ export default function Header({ toggleTheme, darkMode }) {
           {pages.map((page) => (
             <MenuItem key={page.name} onClick={() => handleNavigate(page.link)}>
               <Typography
-                sx={{ color: "inherit",  }}
+                sx={{
+                  color: "inherit",
+                  fontFamily: " cursive",
+                  fontWeight: "600",
+                }}
               >
                 {page.name}
               </Typography>
