@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 💻 Personal Project – Portfolio Showcase Platform
 
 This project is a personal website built using **Next.js** and **Material UI**, designed to present my portfolio as a front-end developer in a modern and attractive way. The site includes multiple sections that showcase skills, projects, and contact information, with an interactive and fully responsive design across all devices.
@@ -35,6 +34,6 @@ The goal of this project is to professionally and efficiently showcase my techni
 ```bash
 npm install
 npm run dev
-=======
+
 # my-profile-personal-nextjs
->>>>>>> b0dc01400f5251efc6b98ed0d44f9e455374e619
+
