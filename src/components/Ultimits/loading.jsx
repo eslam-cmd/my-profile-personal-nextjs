@@ -12,7 +12,7 @@ export default function LoadingScreen() {
     <Backdrop
       open
       sx={{
-        color: "#00ffcc",
+        color: "#D4AF37",
         backgroundColor: "rgba(0,0,0,0.9)",
         zIndex: 9999,
       }}
@@ -23,8 +23,8 @@ export default function LoadingScreen() {
           padding: 4,
           borderRadius: 3,
           backgroundColor: "#121212",
-          boxShadow: "0 0 10px #00ffcc",
-          border: "1px solid #00ffcc",
+          boxShadow: "0 0 10px #D4AF37",
+          border: "1px solid #a18529ff",
           maxWidth: 500,
           width: "100%",
         }}
@@ -35,7 +35,7 @@ export default function LoadingScreen() {
             fontFamily: "monospace",
             display: "flex",
             alignItems: "center",
-            color: "#00ffcc",
+            color: "#D4AF37",
             marginBottom: 2,
           }}
         >
@@ -58,7 +58,7 @@ export default function LoadingScreen() {
           style={{
             fontFamily: "monospace",
             fontSize: "1rem",
-            color: "#d0d0d0",
+            color: "#D4AF37",
           }}
           repeat={Infinity}
         />

@@ -125,7 +125,7 @@ export default function MainSection() {
                 window.location.href = "#project";
               }}
             >
-              <Link href="/projects" style={{ textDecoration: "none" }}>
+              <Link href="/project" style={{ textDecoration: "none" }}>
                 View Projects
               </Link>
             </Button>
@@ -145,7 +145,7 @@ export default function MainSection() {
               <GitHubIcon sx={{ color: "#EAEAEA" }} />
             </Link>
             <Link
-              href="https://www.linkedin.com/in/eslam-hd-60a056357"
+              href="https://www.linkedin.com/in/Islam-hadaya"
               target="_blank"
             >
               <LinkedInIcon sx={{ color: "#0A66C2" }} />

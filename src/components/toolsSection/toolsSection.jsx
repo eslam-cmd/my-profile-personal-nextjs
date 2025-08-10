@@ -19,9 +19,9 @@ export default function ToolsSection() {
           variant="h3"
           className="tools-skils"
           gutterBottom
-          sx={{ textAlign: "center", color: "#D4AF37", marginTop: "50px" }}
+          sx={{ textAlign: "center", color: "#D4AF37", marginTop: "50px",fontWeight: "bold" }}
         >
-          Tools & Skills
+          TOOLS & SKILLS
         </Typography>
         <Typography variant="h5" gutterBottom sx={{ textAlign: "center" }}>
           I Work Hard To Improve My Skills Regularly

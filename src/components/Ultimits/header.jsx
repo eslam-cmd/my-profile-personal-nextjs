@@ -55,13 +55,13 @@ export default function Header({ toggleTheme, darkMode }) {
     <AppBar
       position="static"
       sx={{
-        bgcolor: darkMode ? "#212121" : "#5c6bc0",
+        bgcolor: darkMode ? "#030d1dff" : "#0A1F44",
         marginX: "auto",
         marginY: 2,
         maxWidth: "95%",
         borderRadius: 2,
         boxShadow: 3,
-        border: ".5px #aaa solid",
+        border: ".7px #aaa solid",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
