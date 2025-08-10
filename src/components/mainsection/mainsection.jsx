@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
@@ -11,6 +11,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TypeAnimation } from "react-type-animation";
 import AppsIcon from "@mui/icons-material/Apps";
+
 export default function MainSection() {
   return (
     <>
@@ -28,10 +29,19 @@ export default function MainSection() {
           }}
         >
           <Box>
-            <img
-              src="https://www.mdar.space/_next/image?url=%2FhomeLogo.png&w=1920&q=75"
-              alt="Animated coding icon"
-              style={{ width: "280px", height: "280px", transition: ".5s" }}
+            <Avatar
+              alt="Islam Hadaya"
+              src="/logo/my-photo.jpg"
+              sx={{
+                width: 230,
+                height: 230,
+                boxShadow: "0 4px 12px rgba(212, 175, 55, 0.3)",
+           
+                border: "2px solid #D4AF37",
+                "&:hover": {
+                 boxShadow: "0 4px 12px rgba(204, 166, 42, 0.37)",
+                },
+              }}
             />
           </Box>
 
@@ -41,10 +51,9 @@ export default function MainSection() {
               gap: 0.5,
               flexWrap: "wrap",
               justifyContent: "center",
-              fontFamily: "'Lobster', cursive",
             }}
           >
-            {"Islam Hadaya".split("").map((char, index) => (
+            {"Islam  Hadaya".split("").map((char, index) => (
               <Typography
                 key={index}
                 sx={{
@@ -53,7 +62,7 @@ export default function MainSection() {
                   fontWeight: "bold",
                   animation: `glow 1.5s ease-in-out ${index * 0.1}s infinite`,
                   display: "inline-block",
-                  color: "#3f51b5",
+                  color: "#D4AF37",
                 }}
               >
                 {char}
@@ -88,13 +97,15 @@ export default function MainSection() {
 
           <Box sx={{ display: "flex", gap: 3, marginTop: 4 }}>
             <Button
-              variant="outlined"
+              variant="contained"
               endIcon={<DownloadIcon />}
               sx={{
                 paddingX: 3,
                 paddingY: 1,
                 borderRadius: "25px",
                 fontSize: "0.9rem",
+                background: " #0A1F44",
+                color: "#D4AF37",
               }}
             >
               Download CV
@@ -107,39 +118,37 @@ export default function MainSection() {
                 paddingY: 1,
                 borderRadius: "25px",
                 fontSize: "0.9rem",
+                background: "#0A1F44",
+                color: "#D4AF37",
               }}
               onClick={() => {
                 window.location.href = "#project";
               }}
             >
-              <Link
-                href="/projects"
-                style={{ color:"#222", textDecoration: "none" }}
-              >
+              <Link href="/projects" style={{ textDecoration: "none" }}>
                 View Projects
               </Link>
-              
             </Button>
           </Box>
 
           <Box sx={{ display: "flex", gap: 2, marginTop: 4 }}>
             <Link href="mailto:hdayaaslam34@gmail.com" target="_blank">
-              <EmailIcon />
+              <EmailIcon sx={{ color: "#D4AF37" }} />
             </Link>
             <Link
               href="https://www.facebook.com/islam.hadaya.2025?mibextid=ZbWKwL"
               target="_blank"
             >
-              <FacebookIcon sx={{ color: "#3f51b5" }} />
+              <FacebookIcon sx={{ color: "#1877F2" }} />
             </Link>
             <Link href="https://github.com/eslam-cmd" target="_blank">
-              <GitHubIcon />
+              <GitHubIcon sx={{ color: "#EAEAEA" }} />
             </Link>
             <Link
               href="https://www.linkedin.com/in/eslam-hd-60a056357"
               target="_blank"
             >
-              <LinkedInIcon sx={{ color: "#6573c3" }} />
+              <LinkedInIcon sx={{ color: "#0A66C2" }} />
             </Link>
           </Box>
 

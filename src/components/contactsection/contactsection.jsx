@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import ButtonGroup from '@mui/material/ButtonGroup';
 export default function ContactSection() {
   return (
     <section id="contact" style={{ margin: "70px 0" }}>
@@ -17,7 +16,7 @@ export default function ContactSection() {
           color: "#f1f5f9",
           background: "#1f212c9d",
           borderRadius: "24px",
-          border: "1px solid #aaa",
+          border: "1px solid #D4AF37",
           boxShadow: "0px 4px 10px rgba(25, 118, 210, 0.16)",
         }}
       >
@@ -26,7 +25,7 @@ export default function ContactSection() {
           gutterBottom
           sx={{
             fontWeight: "bold",
-            color: "#38bdf8",
+            color: "#D4AF37",
             marginBottom: "30px",
           }}
         >
@@ -49,17 +48,20 @@ export default function ContactSection() {
 
         <Typography
           variant="body1"
-          sx={{ color: "#aaa", marginBottom: "16px" }}
+          sx={{ marginBottom: "16px" }}
         >
           Ready to level up your digital presence? 🚀
         </Typography>
 
         <Typography
           variant="body1"
-          sx={{ color: "#aaa", marginBottom: "16px" }}
+          sx={{ marginBottom: "16px" }}
         >
           Check out{" "}
-          <Link href="/projectpage" style={{ color: "#38bdf8", textDecoration: "none" }}>
+          <Link
+            href="/project"
+            style={{ color: "#D4AF37", textDecoration: "none" }}
+          >
             my projects
           </Link>{" "}
           to learn more about each service I offer.
@@ -67,30 +69,29 @@ export default function ContactSection() {
 
         <Typography
           variant="body1"
-          sx={{ color: "#aaa", marginBottom: "32px" }}
+          sx={{ marginBottom: "32px" }}
         >
           Have something in mind?{" "}
           <Link
-            href="/Contactformpage"
-            style={{ color: "#38bdf8", textDecoration: "none" }}
+            href="/contact"
+            style={{ color: "#D4AF37", textDecoration: "none" }}
           >
-            Reach out {" "}
+            Reach out{" "}
           </Link>
           and let's turn your vision into reality.
         </Typography>
 
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#1976d2", paddingX: 4, paddingY: 1.5 }}
+          sx={{ backgroundColor: "#0A1F44", paddingX: 4, paddingY: 1.5 }}
         >
           <Link
-            href="/contactpage"
+            href="/contact"
             style={{ color: "#ddd", textDecoration: "none" }}
           >
             Contact me ..
           </Link>
         </Button>
-        
       </Box>
     </section>
   );

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import emailjs from "emailjs-com";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import {
   Box,
   Card,
@@ -15,7 +15,6 @@ import {
   TextField,
   Snackbar,
   Alert,
-  ButtonGroup,
 } from "@mui/material";
 import {
   LinkedIn as LinkedInIcon,
@@ -25,7 +24,7 @@ import {
   Home as HomeIcon,
 } from "@mui/icons-material";
 
-export default function ContactFormPage() {
+export default function ContactPage() {
   const formRef = useRef();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [sending, setSending] = useState(false);
@@ -46,8 +45,7 @@ export default function ContactFormPage() {
           setOpenSnackbar(true);
           setSending(false);
         },
-        (error) => {
-        
+        () => {
           setSending(false);
         }
       );
@@ -58,9 +56,7 @@ export default function ContactFormPage() {
       id="contactpage"
       sx={{
         minHeight: "100vh",
-        backgroundImage: `url('/light.png')`,
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
+        background: "linear-gradient(135deg, #000000, #0A1F44)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -73,22 +69,30 @@ export default function ContactFormPage() {
             boxShadow: 4,
             width: "100%",
             maxWidth: 600,
-            backgroundColor: "rgba(54, 56, 77, 0.48)",
-            border: "1px solid #1976d2",
+            backgroundColor: "rgba(10, 31, 68, 0.7)",
+            border: "1px solid #D4AF37",
             borderRadius: 3,
             backdropFilter: "blur(6px)",
+            padding: 3,
           }}
         >
           <CardContent>
             <Typography
               variant="h4"
-              color="primary"
-              fontWeight={700}
-              gutterBottom
+              sx={{
+                color: "#D4AF37",
+                fontWeight: "700",
+                textAlign: "center",
+                marginBottom: 2,
+              }}
             >
-              Let's work together
+              Let's Work Together
             </Typography>
-            <Typography variant="body1" sx={{ mb: 3, color: "#ccc" }}>
+
+            <Typography
+              variant="body1"
+              sx={{ mb: 3, color: "#ccc", textAlign: "center" }}
+            >
               You can send your inquiries and we will respond to you as soon as
               possible.
             </Typography>
@@ -100,14 +104,26 @@ export default function ContactFormPage() {
                   label="Name"
                   variant="outlined"
                   required
-                  InputProps={{ style: { color: "#fff" } }}
+                  InputLabelProps={{ style: { color: "#D4AF37" } }}
+                  InputProps={{
+                    style: {
+                      color: "#fff",
+                      borderColor: "#D4AF37",
+                    },
+                  }}
                 />
                 <TextField
                   name="email"
                   label="Email"
                   variant="outlined"
                   required
-                  InputProps={{ style: { color: "#fff" } }}
+                  InputLabelProps={{ style: { color: "#D4AF37" } }}
+                  InputProps={{
+                    style: {
+                      color: "#fff",
+                      borderColor: "#D4AF37",
+                    },
+                  }}
                 />
                 <TextField
                   name="message"
@@ -116,7 +132,13 @@ export default function ContactFormPage() {
                   required
                   multiline
                   rows={4}
-                  InputProps={{ style: { color: "#fff" } }}
+                  InputLabelProps={{ style: { color: "#D4AF37" } }}
+                  InputProps={{
+                    style: {
+                      color: "#fff",
+                      borderColor: "#D4AF37",
+                    },
+                  }}
                 />
               </Box>
 
@@ -125,7 +147,14 @@ export default function ContactFormPage() {
                   startIcon={<HomeIcon />}
                   href="/"
                   variant="outlined"
-                  sx={{ color: "#ddd", borderColor: "#1976d2" }}
+                  sx={{
+                    color: "#D4AF37",
+                    borderColor: "#D4AF37",
+                    "&:hover": {
+                      backgroundColor: "#D4AF37",
+                      color: "#000",
+                    },
+                  }}
                 >
                   Home
                 </Button>
@@ -134,7 +163,16 @@ export default function ContactFormPage() {
                   type="submit"
                   variant="contained"
                   disabled={sending}
-                  sx={{ px: 4, py: 1.5 }}
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    backgroundColor: "#D4AF37",
+                    color: "#000",
+                    fontWeight: "600",
+                    "&:hover": {
+                      backgroundColor: "#c9a32f",
+                    },
+                  }}
                 >
                   {sending ? "Sending..." : "Submit"}
                 </Button>
@@ -142,36 +180,24 @@ export default function ContactFormPage() {
             </form>
           </CardContent>
 
-          <Box
-            sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 3 }}
-          >
-            <Link
-              href="mailto:hdayaaslam34@gmail.com"
-              target="_blank"
-              aria-label="Email"
-            >
-              <EmailIcon sx={{ color: "#ddd" }} />
+          <Box sx={{ display: "flex", gap: 2, marginTop: 4 }}>
+            <Link href="mailto:hdayaaslam34@gmail.com" target="_blank">
+              <EmailIcon sx={{ color: "#D4AF37" }} />
             </Link>
             <Link
               href="https://www.facebook.com/islam.hadaya.2025?mibextid=ZbWKwL"
               target="_blank"
-              aria-label="Facebook"
             >
-              <FacebookIcon sx={{ color: "#3f51b5" }} />
+              <FacebookIcon sx={{ color: "#1877F2" }} />
             </Link>
-            <Link
-              href="https://github.com/eslam-cmd"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <GitHubIcon sx={{ color: "#ddd" }} />
+            <Link href="https://github.com/eslam-cmd" target="_blank">
+              <GitHubIcon sx={{ color: "#EAEAEA" }} />
             </Link>
             <Link
               href="https://www.linkedin.com/in/eslam-hd-60a056357"
               target="_blank"
-              aria-label="LinkedIn"
             >
-              <LinkedInIcon sx={{ color: "rgb(101, 115, 195)" }} />
+              <LinkedInIcon sx={{ color: "#0A66C2" }} />
             </Link>
           </Box>
         </Card>

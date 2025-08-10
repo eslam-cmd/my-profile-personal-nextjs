@@ -28,8 +28,8 @@ export default function Header({ toggleTheme, darkMode }) {
       : [
           { name: "HOME", link: "#home" },
           { name: "SKILS & TOOLS", link: "#skills" },
-          { name: "PORTFOLIO", link: "/projects" },
-          { name: "CONTACT", link: "/contactpage" },
+          { name: "PORTFOLIO", link: "/project" },
+          { name: "CONTACT", link: "/contact" },
         ];
 
   const handleOpenNavMenu = (event) => {
@@ -61,7 +61,7 @@ export default function Header({ toggleTheme, darkMode }) {
         maxWidth: "95%",
         borderRadius: 2,
         boxShadow: 3,
-        border: ".5px #fff solid",
+        border: ".5px #aaa solid",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
@@ -70,7 +70,7 @@ export default function Header({ toggleTheme, darkMode }) {
           sx={{
             fontFamily: "'Lobster', cursive",
             fontSize: "32px",
-            color: "#fff",
+            color: "#D4AF37",
             textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
           }}
         >
@@ -91,7 +91,11 @@ export default function Header({ toggleTheme, darkMode }) {
         >
           {pages.map((page) => (
             <MenuItem key={page.name} onClick={() => handleNavigate(page.link)}>
-              <Typography sx={{ color: "inherit",  }}>{page.name}</Typography>
+              <Typography
+                sx={{ color: "inherit",  }}
+              >
+                {page.name}
+              </Typography>
             </MenuItem>
           ))}
         </Menu>
@@ -106,9 +110,10 @@ export default function Header({ toggleTheme, darkMode }) {
                 marginX: 2,
                 transition: ".5s",
                 textDecoration: "none",
-                fontWeight:"500",
+                fontFamily: " cursive",
+                fontWeight: "600",
                 "&:hover": {
-                  color: "white",
+                  color: "#D4AF37",
                 },
               }}
             >

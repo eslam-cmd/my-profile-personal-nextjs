@@ -5,20 +5,11 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Box } from "@mui/material";
 
-// مكونات رئيسية
-import Header from "./components/Ultimits/header";
-import Footer from "./components/Ultimits/footer";
-import LoadingScreen from "./components/Ultimits/loading";
+// تحميل كسول للصفحة الرئيسية
+const Homepage = lazy(() => import("./home/page"));
 
-// أقسام الصفحة
-import MainSection from "./Pages/MainSection/page";
-import ToolsSection from "./Pages/ToolsSection/page";
-import ServiceSection from "./Pages/Servers Section/page";
-import ExpandSdservices from "./Pages/Expand sdservices/page";
-import ContactSection from "./Pages/ContactSection/page";
-
-// تحميل كسول للمكونات الثقيلة
-
+// شاشة التحميل
+import LoadingScreen from "../components/Ultimits/loading";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -26,24 +17,30 @@ export default function Home() {
 
   const toggleTheme = () => setDarkMode((prev) => !prev);
 
-  // إنشاء الثيم حسب الوضع
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
           mode: darkMode ? "dark" : "light",
           background: {
-            default: darkMode ? "#121212" : "#f5f5f5",
+            default: darkMode ? "#000" : "#cbe4f0ff",
+            paper: darkMode ? "#111827" : "#ffffff",
           },
           text: {
             primary: darkMode ? "#ddd" : "#282828",
+            secondary: darkMode ? "#ccc" : "#555",
           },
+          primary: {
+            main: "#D4AF37",
+          },
+        },
+        typography: {
+          fontFamily: "Roboto, sans-serif",
         },
       }),
     [darkMode]
   );
 
-  // شاشة التحميل حسب تحميل الصفحة
   useEffect(() => {
     const handleLoad = () => setLoading(false);
 
@@ -64,27 +61,19 @@ export default function Home() {
       ) : (
         <Box
           sx={{
-            backgroundImage: `url(${darkMode ? "/dark.png" : "/light.png"})`,
+            background: darkMode
+              ? "linear-gradient(135deg, #000000, #0A1F44)"
+              : "linear-gradient(135deg, #cbe4f0, #ffffff)",
             backgroundSize: "cover",
             backgroundAttachment: "fixed",
             transition: "background 0.5s ease-in-out",
             minHeight: "100vh",
-            color: darkMode ? "#AAA" : "#282828",
+            color: theme.palette.text.primary,
           }}
         >
-          <Header toggleTheme={toggleTheme} darkMode={darkMode} />
-          <MainSection />
-          <ToolsSection />
-          <ServiceSection />
-          <ExpandSdservices />
-          <Suspense
-            fallback={
-              <div style={{ textAlign: "center" }}>Loading Projects...</div>
-            }
-          >
+          <Suspense fallback={<LoadingScreen />}>
+            <Homepage toggleTheme={toggleTheme} darkMode={darkMode} />
           </Suspense>
-          <ContactSection />
-          <Footer />
         </Box>
       )}
     </ThemeProvider>
