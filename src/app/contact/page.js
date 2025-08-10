@@ -4,7 +4,7 @@ import React from "react";
 import Header from "../../components/Ultimits/header";
 import Footer from "../../components/Ultimits/footer";
 
-import ContactPage from "../../components/contactpage/Contactpage";
+import ContactPage from "../../components/contactpage/TempContact";
 
 export default function ContactScreen({ toggleTheme, darkMode }) {
   return (
