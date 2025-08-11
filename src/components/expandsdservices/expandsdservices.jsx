@@ -1,13 +1,22 @@
 "use client";
 import * as React from "react";
-import { Card, Grid, Typography, Box, Divider } from "@mui/material";
+import { Card, Grid, Typography, Box, Divider, useTheme } from "@mui/material";
 
 // ✅ استيراد الأيقونات من MUI
 import { MdOutlineSettings } from "react-icons/md";
 import { MdLightbulbOutline } from "react-icons/md";
 import { MdOutlineAnalytics } from "react-icons/md";
 
-export default function ExpandSdservices() {
+export default function ExpandSdservices({ toggleTheme, darkMode }) {
+  const theme = useTheme();
+    const colors = {
+      buttonBg: darkMode ? "#0A1F44" : "#186e96",
+      buttonText: darkMode ? "#D4AF37" : "#ffff",
+      avatarBorder: "#D4AF37",
+      avatarShadow: "rgba(212, 175, 55, 0.3)",
+      nameColor:darkMode ? "#D4AF37" : "#186e96",
+      glowColor: "#3f51b5",
+    };
   const services = [
     {
       id: 1,
@@ -40,27 +49,27 @@ export default function ExpandSdservices() {
       }}
     >
       <Typography
-        variant="h3"
         gutterBottom
         sx={{
           textAlign: "center",
-          color: "#D4AF37",
+          color: colors.nameColor,
           fontWeight: "700",
           letterSpacing: "1px",
           textTransform: "uppercase",
+          fontSize: { xs: "1.9rem", sm: "2.3rem", md: "2.7rem" },
         }}
       >
         Expanded Services
       </Typography>
 
       <Typography
-        variant="h5"
         gutterBottom
         sx={{
           textAlign: "center",
           maxWidth: "800px",
           margin: "auto",
-          marginTop: "20px",
+          marginTop: "12px",
+          fontSize: { xs: "1.1rem", sm: "1.4rem", md: "2rem" },
         }}
       >
         Unlock a world of specialized services that distinguish my work and
@@ -83,7 +92,8 @@ export default function ExpandSdservices() {
                 background: "rgba(10, 31, 68, 0.7)",
                 borderRadius: "24px",
                 boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.2)",
-                border: "1px solid #D4AF37",
+                border: "1px solid ",
+                borderColor:colors.buttonBg,
                 textAlign: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
@@ -91,13 +101,13 @@ export default function ExpandSdservices() {
                 },
               }}
             >
-              <Box sx={{ fontSize: "5rem", color: "#D4AF37", mb: 2 }}>
+              <Box sx={{ fontSize: "5rem", color: colors.buttonText, mb: 2 }}>
                 {service.icon}
               </Box>
 
               <Typography
                 variant="h6"
-                sx={{ fontWeight: "bold", color: "#D4AF37", mb: 1 }}
+                sx={{ fontWeight: "bold", color: colors.buttonText, mb: 1 }}
               >
                 {service.title}
               </Typography>
@@ -118,7 +128,7 @@ export default function ExpandSdservices() {
         ))}
       </Grid>
 
-      <Divider sx={{ backgroundColor: "#D4AF37", marginTop: "100px" }} />
+      <Divider sx={{ backgroundColor: colors.buttonBg, marginTop: "100px" }} />
     </section>
   );
 }

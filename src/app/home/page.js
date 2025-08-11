@@ -14,11 +14,12 @@ export default function HomePage({ toggleTheme, darkMode }) {
   return (
     <>
       <Header toggleTheme={toggleTheme} darkMode={darkMode} />
-      <MainSection />
-      <ToolsSection />
-      <ServiceSection />
-      <ExpandSdservices />
-      <ContactSection />
+      <MainSection  toggleTheme={toggleTheme} darkMode={darkMode} />
+    
+      <ToolsSection toggleTheme={toggleTheme} darkMode={darkMode}/>
+      <ServiceSection toggleTheme={toggleTheme} darkMode={darkMode}/>
+      <ExpandSdservices toggleTheme={toggleTheme} darkMode={darkMode}/>
+      <ContactSection toggleTheme={toggleTheme} darkMode={darkMode}  />
       <Footer />
     </>
   );

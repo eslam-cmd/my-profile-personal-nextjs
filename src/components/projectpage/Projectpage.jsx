@@ -20,9 +20,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import HomeIcon from "@mui/icons-material/Home";
 import LinkIcon from "@mui/icons-material/Link";
-import Header from "../Ultimits/header";
-import Footer from "../Ultimits/footer";
-
+import BuildIcon from '@mui/icons-material/Build';
 export default function ProjectPage({ toggleTheme, darkMode, projects }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -73,6 +71,7 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
             color: "#D4AF37",
             fontWeight: "700",
             letterSpacing: "1px",
+            fontSize: { xs: "1.9rem", sm: "1.6rem", md: "2.9rem" },
             textTransform: "uppercase",
           }}
         >
@@ -81,31 +80,60 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
 
         <Button
           variant="contained"
-          startIcon={<HomeIcon />}
+          startIcon={<HomeIcon sx={{ fontSize: { xs: 20, sm: 24, md: 26 } }} />}
           sx={{
             width: "100%",
             backgroundColor: "#0A1F44",
             color: "#fff",
-            paddingY: 1.5,
-            fontWeight: "600",
-            fontSize: "16px",
-            boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.3)",
+            paddingY: { xs: 1.2, sm: 1.6, md: 1.8 },
+            paddingX: { xs: 2, sm: 3 },
+            fontWeight: 600,
+            fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.2rem" },
+            borderRadius: "12px",
+            marginBottom: "24px",
+            boxShadow: "0px 4px 12px rgba(212, 175, 55, 0.3)",
+            transition: "all 0.3s ease-in-out",
             "&:hover": {
-           
-              boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.56)",
+              backgroundColor: "#D4AF37",
+              color: "#000",
+              boxShadow: "0px 4px 14px rgba(212, 175, 55, 0.56)",
+              transform: "translateY(-2px)",
             },
           }}
         >
-          <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-            Go to home page
+          <Link
+            href="/"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Go to Home Page
           </Link>
         </Button>
 
         <Grid
           container
+          spacing={1}
+          wrap="nowrap"
           justifyContent="center"
-          spacing={2}
-          sx={{ marginBottom: "20px" }}
+          sx={{
+            marginBottom: "16px",
+            overflowX: "auto",
+            paddingBottom: "8px",
+            display: "flex",
+            "&::-webkit-scrollbar": {
+              height: "4px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#D4AF37",
+              borderRadius: "10px",
+            },
+          }}
         >
           {["all", "htmlcss", "react", "htmlcssjs", "next"].map((category) => (
             <Grid item key={category}>
@@ -117,15 +145,16 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
                 }}
                 sx={{
                   textTransform: "none",
-                  padding: "10px 20px",
-                  borderRadius: "10px",
-                  marginBottom: "20px",
-                  marginTop: "10px",
+                  padding: { xs: "6px 12px", sm: "8px 16px", md: "10px 20px" },
+                  fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
+                  borderRadius: "8px",
                   backgroundColor:
                     selectedTech === category ? "#D4AF37" : "#0A1F44",
                   color: selectedTech === category ? "#000" : "#fff",
                   border:
-                    selectedTech === category ? "none" : "1.5px solid #D4AF37",
+                    selectedTech === category ? "none" : "1.2px solid #D4AF37",
+                  whiteSpace: "nowrap",
+                  minWidth: "max-content",
                   "&:hover": {
                     backgroundColor: "#D4AF37",
                     color: "#000",
@@ -133,14 +162,14 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
                 }}
               >
                 {category === "all"
-                  ? "All Projects"
+                  ? "All"
                   : category === "htmlcss"
-                  ? "HTML & CSS"
+                  ? "HTML/CSS"
                   : category === "react"
-                  ? "React.js"
+                  ? "React"
                   : category === "next"
-                  ? "Next.js"
-                  : "JavaScript"}
+                  ? "Next"
+                  : "JS"}
               </Button>
             </Grid>
           ))}
@@ -239,8 +268,11 @@ function ProjectCard({ project }) {
           >
             {project.title}
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: "12px", color: "#ccc" }}>
+          <Typography variant="body2" sx={{ fontSize: "14px", color: "#ccc" }}>
             {project.description}
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: "12px", color: "#db1515ff", marginTop:"5px" }}>
+            {project.more}
           </Typography>
         </CardContent>
       </CardActionArea>

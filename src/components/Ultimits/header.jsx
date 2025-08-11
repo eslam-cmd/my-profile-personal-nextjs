@@ -55,7 +55,7 @@ export default function Header({ toggleTheme, darkMode }) {
     <AppBar
       position="static"
       sx={{
-        bgcolor: darkMode ? "#030d1dff" : "#0A1F44",
+        bgcolor: darkMode ? "#030d1dff" : "#186e96ff",
         marginX: "auto",
         marginY: 2,
         maxWidth: "95%",

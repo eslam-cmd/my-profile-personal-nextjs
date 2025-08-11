@@ -8,22 +8,45 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Divider from "@mui/material/Divider";
 
 import { cards } from "../../data/skillsData";
+import { useTheme } from "@emotion/react";
 
-export default function ToolsSection() {
+export default function ToolsSection({ toggleTheme, darkMode }) {
+  const theme = useTheme();
+  const colors = {
+    buttonBg: darkMode ? "#0A1F44" : "#186e96",
+    buttonText: darkMode ? "#D4AF37" : "#ffff",
+    avatarBorder: "#D4AF37",
+    avatarShadow: "rgba(212, 175, 55, 0.3)",
+    nameColor: darkMode ? "#D4AF37" : "#186e96",
+    glowColor: "#3f51b5",
+  };
   return (
     <>
       <section id="skills">
-        <Divider sx={{ backgroundColor: "#ddd", marginTop: "230px" }} />
+        <Divider
+          sx={{ backgroundColor: colors.buttonBg, marginTop: "230px" }}
+        />
 
         <Typography
-          variant="h3"
           className="tools-skils"
           gutterBottom
-          sx={{ textAlign: "center", color: "#D4AF37", marginTop: "50px",fontWeight: "bold" }}
+          sx={{
+            textAlign: "center",
+            color: colors.nameColor,
+            marginTop: "50px",
+            fontWeight: "bold",
+            fontSize: { xs: "1.9rem", sm: "2.3rem", md: "2.7rem" },
+          }}
         >
           TOOLS & SKILLS
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ textAlign: "center" }}>
+        <Typography
+          gutterBottom
+          sx={{
+            textAlign: "center",
+            fontSize: { xs: "1.1rem", sm: "1.4rem", md: "2rem" },
+          }}
+        >
           I Work Hard To Improve My Skills Regularly
         </Typography>
 

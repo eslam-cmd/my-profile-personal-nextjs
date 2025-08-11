@@ -47,8 +47,8 @@ export const projects = [
     description:
       "A modern educational platform showcasing courses or learning content, designed using React.",
     photo: "imgelearining.png",
-    linkview: "https://eslam-cmd.github.io/hospital/",
-    linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
+    linkview: "https://eslam-cmd.github.io/E-learning/",
+    linkgithub: "/project",
     tech: "react",
   },
   {
@@ -66,9 +66,10 @@ export const projects = [
     title: "Nutritional supplements store",
     description:
       "SportUp is a fast, modern website for selling supplements and healthy products. Built with Next.js, React, Tailwind CSS, and Supabase. Simple design, smooth experience, smart product organization.",
+      more:"The site is currently incomplete.. It is being worked on now.",
     photo: "E-commerce-next.png",
-    linkview: "https://eslam-cmd.github.io/Tea-Project/",
-    linkgithub: "https://github.com/eslam-cmd/Tea-Project",
+    linkview: "/",
+    linkgithub: "/",
     tech: "next",
   },
 ];

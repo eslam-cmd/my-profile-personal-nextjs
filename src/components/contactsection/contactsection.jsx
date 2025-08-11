@@ -4,7 +4,17 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-export default function ContactSection() {
+import { useTheme } from "@emotion/react";
+export default function ContactSection({ toggleTheme, darkMode }) {
+  const theme = useTheme();
+  const colors = {
+    buttonBg: darkMode ? "#0A1F44" : "#186e96",
+    buttonText: darkMode ? "#D4AF37" : "#ffff",
+    avatarBorder: "#D4AF37",
+    avatarShadow: "rgba(212, 175, 55, 0.3)",
+    nameColor: darkMode ? "#D4AF37" : "#007ffdff",
+    glowColor: "#3f51b5",
+  };
   return (
     <section id="contact" style={{ margin: "70px 0" }}>
       <Box
@@ -21,23 +31,23 @@ export default function ContactSection() {
         }}
       >
         <Typography
-          variant="h3"
           gutterBottom
           sx={{
             fontWeight: "bold",
-            color: "#D4AF37",
+            color: colors.nameColor,
             marginBottom: "30px",
+            fontSize: { xs: "1.6rem", sm: "1.8rem", md: "2rem" },
           }}
         >
           Let's Build Something Exceptional Together
         </Typography>
 
         <Typography
-          variant="h5"
           sx={{
             color: "#ddd",
             marginBottom: "24px",
             lineHeight: 1.8,
+            fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.6rem" },
           }}
         >
           I'm <strong>Islam Hadaya</strong>, a freelance developer focused on
@@ -47,15 +57,19 @@ export default function ContactSection() {
         </Typography>
 
         <Typography
-          variant="body1"
-          sx={{ marginBottom: "16px" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: { xs: "1.1rem", sm: "1.4rem", md: "1.4rem" },
+          }}
         >
           Ready to level up your digital presence? 🚀
         </Typography>
 
         <Typography
-          variant="body1"
-          sx={{ marginBottom: "16px" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: { xs: "1.1rem", sm: "1.4rem", md: "1.4rem" },
+          }}
         >
           Check out{" "}
           <Link
@@ -67,10 +81,7 @@ export default function ContactSection() {
           to learn more about each service I offer.
         </Typography>
 
-        <Typography
-          variant="body1"
-          sx={{ marginBottom: "32px" }}
-        >
+        <Typography variant="body1" sx={{ marginBottom: "32px" }}>
           Have something in mind?{" "}
           <Link
             href="/contact"
@@ -83,11 +94,20 @@ export default function ContactSection() {
 
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#0A1F44", paddingX: 4, paddingY: 1.5 }}
+          sx={{
+            backgroundColor: colors.buttonBg,
+
+            paddingX: 4,
+            paddingY: 1.5,
+            borderRadius: "25px",
+          }}
         >
           <Link
             href="/contact"
-            style={{ color: "#ddd", textDecoration: "none" }}
+            style={{
+              color: colors.buttonText,
+              textDecoration: "none",
+            }}
           >
             Contact me ..
           </Link>

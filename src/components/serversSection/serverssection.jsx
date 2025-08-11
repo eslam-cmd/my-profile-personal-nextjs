@@ -7,6 +7,7 @@ import {
   Box,
   Divider,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 
 // ✅ استيراد الأيقونات
@@ -20,7 +21,16 @@ import {
 } from "react-icons/md";
 import { GiPencilRuler } from "react-icons/gi";
 
-export default function ServiceSection() {
+export default function ServiceSection({ toggleTheme, darkMode }) {
+  const theme = useTheme();
+  const colors = {
+    buttonBg: darkMode ? "#0A1F44" : "#186e96",
+    buttonText: darkMode ? "#D4AF37" : "#ffff",
+    avatarBorder: "#D4AF37",
+    avatarShadow: "rgba(212, 175, 55, 0.3)",
+    nameColor:darkMode ? "#D4AF37" : "#186e96",
+    glowColor: "#3f51b5",
+  };
   const services = [
     {
       id: 1,
@@ -47,7 +57,7 @@ export default function ServiceSection() {
       id: 4,
       title: "Full-Stack Capabilities",
       description:
-        "End-to-end development with PrismaDB and modern stacks for seamless data management and performance.",
+        "End-to-end development using Next.js, RESTful APIs, and Supabase for scalable architecture and smooth data flow.",
       icon: <MdOutlineStorage />,
     },
     {
@@ -68,8 +78,6 @@ export default function ServiceSection() {
 
   return (
     <section id="services" style={{ padding: "100px 20px" }}>
-     
-
       <Grid container spacing={4} justifyContent="center">
         {services.map((service) => (
           <Grid item xs={12} sm={6} md={4} key={service.id}>
@@ -86,7 +94,8 @@ export default function ServiceSection() {
                 background: "rgba(10, 31, 68, 0.7)",
                 borderRadius: "24px",
                 boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.2)",
-                border: "1px solid #D4AF37",
+                border: "1px solid",
+                borderColor: colors.buttonBg,
                 textAlign: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
@@ -94,13 +103,13 @@ export default function ServiceSection() {
                 },
               }}
             >
-              <Box sx={{ fontSize: "4rem", color: "#D4AF37" }}>
+              <Box sx={{ fontSize: "4rem", color: colors.buttonText }}>
                 {service.icon}
               </Box>
 
               <Typography
                 variant="h6"
-                sx={{ fontWeight: "bold", color: "#D4AF37" }}
+                sx={{ fontWeight: "bold", color:colors.buttonText }}
               >
                 {service.title}
               </Typography>
@@ -122,7 +131,7 @@ export default function ServiceSection() {
         ))}
       </Grid>
 
-      <Divider sx={{ backgroundColor: "#D4AF37", marginTop: "100px" }} />
+      <Divider sx={{ backgroundColor: colors.buttonBg, marginTop: "100px" }} />
     </section>
   );
 }

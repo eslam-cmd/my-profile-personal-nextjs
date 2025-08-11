@@ -24,7 +24,7 @@ export default function Home() {
           mode: darkMode ? "dark" : "light",
           background: {
             default: darkMode ? "#000" : "#cbe4f0ff",
-            paper: darkMode ? "#111827" : "#ffffff",
+            paper: darkMode ? "#030d1dff" : "#186e96ff",
           },
           text: {
             primary: darkMode ? "#ddd" : "#282828",

@@ -11,8 +11,20 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TypeAnimation } from "react-type-animation";
 import AppsIcon from "@mui/icons-material/Apps";
+import { useTheme } from "@mui/material/styles";
 
-export default function MainSection() {
+export default function MainSection({ toggleTheme, darkMode }) {
+  const theme = useTheme();
+  const colors = {
+    buttonBg: darkMode ? "#0A1F44" : "#186e96",
+    buttonText: darkMode ? "#D4AF37" : "#ffff",
+    avatarBorder: darkMode ? "#D4AF37" : "#186e96",
+    avatarShadow: darkMode
+      ? "0 6px 58px rgba(212, 175, 55, 0.3)"
+      : "rgba(14, 124, 175, 1)",
+    nameColor:darkMode ? "#D4AF37" : "#186e96",
+    glowColor: "#3f51b5",
+  };
   return (
     <>
       <section id="home">
@@ -35,11 +47,12 @@ export default function MainSection() {
               sx={{
                 width: 230,
                 height: 230,
-                boxShadow: "0 6px 58px rgba(212, 175, 55, 0.3)",
-           
-                border: "2px solid #D4AF37",
+                boxShadow: colors.avatarShadow,
+
+                border: "2px solid ",
+                borderColor:colors.avatarBorder,
                 "&:hover": {
-                 boxShadow: "0 4px 12px rgba(204, 166, 42, 0.37)",
+                  boxShadow: "0 4px 12px rgba(204, 166, 42, 0.37)",
                 },
               }}
             />
@@ -62,7 +75,7 @@ export default function MainSection() {
                   fontWeight: "bold",
                   animation: `glow 1.5s ease-in-out ${index * 0.1}s infinite`,
                   display: "inline-block",
-                  color: "#D4AF37",
+                  color: colors.nameColor,
                 }}
               >
                 {char}
@@ -103,29 +116,33 @@ export default function MainSection() {
                 paddingX: 3,
                 paddingY: 1,
                 borderRadius: "25px",
-                fontSize: "0.9rem",
-                background: " #0A1F44",
-                color: "#D4AF37",
+                fontSize: { xs: "0.58rem", sm: "0.85rem", md: "1rem" },
+                backgroundColor: colors.buttonBg,
+                color: colors.buttonText,
               }}
             >
               Download CV
             </Button>
             <Button
               variant="contained"
-              endIcon={<AppsIcon />}
+              endIcon={<AppsIcon sx={{ color: colors.buttonText }} />}
               sx={{
                 paddingX: 3,
                 paddingY: 1,
                 borderRadius: "25px",
-                fontSize: "0.9rem",
-                background: "#0A1F44",
-                color: "#D4AF37",
-              }}
-              onClick={() => {
-                window.location.href = "#project";
+                fontSize: { xs: "0.58rem", sm: "0.85rem", md: "1rem" },
+                backgroundColor: colors.buttonBg,
+                textTransform: "none",
               }}
             >
-              <Link href="/project" style={{ textDecoration: "none" }}>
+              <Link
+                href="/project"
+                style={{
+                  textDecoration: "none",
+                  color: colors.buttonText,
+                  display: "inline-block",
+                }}
+              >
                 View Projects
               </Link>
             </Button>
