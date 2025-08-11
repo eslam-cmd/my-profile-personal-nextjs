@@ -116,7 +116,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                 paddingX: 3,
                 paddingY: 1,
                 borderRadius: "25px",
-                fontSize: { xs: "0.58rem", sm: "0.85rem", md: "1rem" },
+                fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
                 backgroundColor: colors.buttonBg,
                 color: colors.buttonText,
               }}
@@ -130,7 +130,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                 paddingX: 3,
                 paddingY: 1,
                 borderRadius: "25px",
-                fontSize: { xs: "0.58rem", sm: "0.85rem", md: "1rem" },
+                fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
                 backgroundColor: colors.buttonBg,
                 textTransform: "none",
               }}
@@ -143,7 +143,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                   display: "inline-block",
                 }}
               >
-                View Projects
+                VIEW PROJECTS
               </Link>
             </Button>
           </Box>
