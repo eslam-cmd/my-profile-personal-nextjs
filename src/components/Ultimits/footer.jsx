@@ -71,7 +71,6 @@ export default function Footer() {
           {/* زر التواصل */}
           <Button
             variant="contained"
-            startIcon={<EmailIcon />}
             href="mailto:hdayaaslam34@gmail.com"
             sx={{
               fontFamily: "'Parisienne', cursive",
@@ -87,7 +86,8 @@ export default function Footer() {
               },
             }}
           >
-            تواصل معي
+            Let’s work together
+            <EmailIcon />
           </Button>
         </Box>
       </Box>
