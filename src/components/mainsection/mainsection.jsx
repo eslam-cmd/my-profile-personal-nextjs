@@ -23,7 +23,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
     avatarShadow: darkMode
       ? "0 6px 58px rgba(212, 175, 55, 0.3)"
       : "rgba(14, 124, 175, 1)",
-    nameColor:darkMode ? "#D4AF37" : "#186e96",
+    nameColor: darkMode ? "#D4AF37" : "#186e96",
     glowColor: "#3f51b5",
   };
 
@@ -100,86 +100,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
             height: "20vh",
           }}
         >
-          {/* موجات صوتية متحركة حول الصورة */}
           <Box sx={{ position: "relative", display: "inline-block" }}>
-            {/* الموجات الخارجية */}
-            <Box
-              sx={{
-                position: "absolute",
-                top: "-20px",
-                left: "-20px",
-                right: "-20px",
-                bottom: "-20px",
-                borderRadius: "50%",
-                border: `2px solid ${darkMode ? "#D4AF37" : "#186e96"}`,
-                opacity: 0.6,
-                animation: `${pulse} 3s infinite ease-in-out`,
-              }}
-            />
-             <Box
-              sx={{
-                position: "absolute",
-                top: "-10px",
-                left: "-10px",
-                right: "-10px",
-                bottom: "-10px",
-                borderRadius: "50%",
-                border: `1px solid ${darkMode ? "#D4AF37" : "#186e96"}`,
-                opacity: 0.6,
-                animation: `${pulse} 3s infinite ease-in-out`,
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                top: "-5px",
-                left: "-5px",
-                right: "-5px",
-                bottom: "-5px",
-                borderRadius: "50%",
-                border: `.5px solid ${darkMode ? "#D4AF37" : "#186e96"}`,
-                opacity: 0.6,
-                animation: `${pulse} 3s infinite ease-in-out`,
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                top: "-30px",
-                left: "-30px",
-                right: "-30px",
-                bottom: "-30px",
-                borderRadius: "50%",
-                border: `.3px solid ${darkMode ? "#D4AF37" : "#186e96"}`,
-                opacity: 0.4,
-                animation: `${pulse} 4s infinite ease-in-out`,
-                animationDelay: "0.5s",
-              }}
-            />
-            
-            {/* قضبان موسيقى متحركة */}
-            {[...Array(8)].map((_, i) => (
-              <Box
-                key={i}
-                sx={{
-                  position: "absolute",
-                  width: "4px",
-                  background: darkMode ? 
-                    `linear-gradient(to top, #D4AF37, #FFD700, #D4AF37)` : 
-                   ` linear-gradient(to top, #186e96, #2a9df4, #186e96)`,
-                  borderRadius: "2px",
-                  bottom: "50%",
-                  left: "50%",
-                  transformOrigin: "bottom center",
-                  transform: `translateX(-50%) rotate(${i * 45}deg)`,
-                  height: "15px",
-                  animation: `${musicBars} 1.5s infinite ease-in-out`,
-                  animationDelay: `${i * 0.2}s`,
-                  zIndex: -1,
-                }}
-              />
-            ))}
-            
             <Avatar
               alt="Islam Hadaya"
               src="/logo/my-photo.jpg"
@@ -190,31 +111,12 @@ export default function MainSection({ toggleTheme, darkMode }) {
                 border: "2px solid ",
                 borderColor: colors.avatarBorder,
                 "&:hover": {
-                  boxShadow: "0 4px 12px rgba(204, 166, 42, 0.37)",
+                  boxShadow: "0 4px 12px rgba(204, 166, 42, 0.63)",
                 },
                 position: "relative",
                 zIndex: 2,
               }}
             />
-            
-            {/* نقاط موسيقية متحركة */}
-            {[...Array(6)].map((_, i) => (
-              <Box
-                key={i}
-                sx={{
-                  position: "absolute",
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: darkMode ? "#D4AF37" : "#186e96",
-                  top: `${30 + (i * 15)}%`,
-                  left: `${i % 2 === 0 ? "20%" : "80%"}`,
-                  opacity: 0.7,
-                  animation: `${pulse} 2s infinite ease-in-out`,
-                  animationDelay: `${i * 0.3}s`,
-                }}
-              />
-            ))}
           </Box>
 
           <Box
@@ -253,11 +155,15 @@ export default function MainSection({ toggleTheme, darkMode }) {
           >
             <TypeAnimation
               sequence={[
-                "Empowering your brand with powerful web solutions.",
+                "Turning complex problems into elegant code.",
                 2000,
-                "Building better web experiences, one project at a time.",
+                "Crafting secure, scalable, and user-friendly applications.",
                 2000,
-                "Code that transforms ideas into reality.",
+                "From concept to deployment — I build with precision.",
+                2000,
+                "Engineering digital solutions that empower businesses.",
+                2000,
+                "Clean code. Clear logic. Creative solutions.",
                 2000,
               ]}
               wrapper="span"
