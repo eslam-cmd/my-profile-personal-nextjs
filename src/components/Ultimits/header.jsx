@@ -94,8 +94,8 @@ export default function Header({ toggleTheme, darkMode }) {
               <Typography
                 sx={{
                   color: "inherit",
-                  fontFamily: " cursive",
                   fontWeight: "600",
+                  fontFamily: "'Parisienne', cursive",
                 }}
               >
                 {page.name}
@@ -114,7 +114,7 @@ export default function Header({ toggleTheme, darkMode }) {
                 marginX: 2,
                 transition: ".5s",
                 textDecoration: "none",
-                fontFamily: " cursive",
+                fontFamily: "'Parisienne', cursive",
                 fontWeight: "600",
                 "&:hover": {
                   color: "#D4AF37",

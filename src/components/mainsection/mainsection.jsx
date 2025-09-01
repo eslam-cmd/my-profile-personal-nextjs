@@ -12,7 +12,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import { TypeAnimation } from "react-type-animation";
 import AppsIcon from "@mui/icons-material/Apps";
 import { useTheme } from "@mui/material/styles";
-import { keyframes } from "@emotion/react";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 export default function MainSection({ toggleTheme, darkMode }) {
   const theme = useTheme();
@@ -26,64 +26,13 @@ export default function MainSection({ toggleTheme, darkMode }) {
     nameColor: darkMode ? "#D4AF37" : "#186e96",
     glowColor: "#3f51b5",
   };
-
-  // تعريف أنيميشن للموجات الصوتية
-  const pulse = keyframes`
-    0% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 0.4;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-  `;
-
-  const wave = keyframes`
-    0% {
-      transform: rotate(0deg);
-    }
-    10% {
-      transform: rotate(-5deg);
-    }
-    20% {
-      transform: rotate(5deg);
-    }
-    30% {
-      transform: rotate(-5deg);
-    }
-    40% {
-      transform: rotate(5deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  `;
-
-  const musicBars = keyframes`
-    0% {
-      height: 5px;
-    }
-    25% {
-      height: 25px;
-    }
-    50% {
-      height: 15px;
-    }
-    75% {
-      height: 30px;
-    }
-    100% {
-      height: 5px;
-    }
-  `;
+  const iconColors = {
+    email: darkMode ? "#FFD700" : "#D4AF37",
+    facebook: darkMode ? "#90CAF9" : "#1877F2",
+    github: darkMode ? "#EAEAEA" : "#000",
+    linkedin: darkMode ? "#64B5F6" : "#0A66C2",
+    twitter: darkMode ? "#64B5F6" : "#1DA1F2",
+  };
 
   return (
     <>
@@ -184,6 +133,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                 fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
                 backgroundColor: colors.buttonBg,
                 color: colors.buttonText,
+                fontWeight:"600"
               }}
             >
               Download CV
@@ -206,6 +156,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                   textDecoration: "none",
                   color: colors.buttonText,
                   display: "inline-block",
+                  fontWeight:"600"
                 }}
               >
                 VIEW PROJECTS
@@ -215,22 +166,25 @@ export default function MainSection({ toggleTheme, darkMode }) {
 
           <Box sx={{ display: "flex", gap: 2, marginTop: 4 }}>
             <Link href="mailto:hdayaaslam34@gmail.com" target="_blank">
-              <EmailIcon sx={{ color: "#D4AF37" }} />
+              <EmailIcon sx={{ color: iconColors.email }} />
             </Link>
             <Link
               href="https://www.facebook.com/islam.hadaya.2025?mibextid=ZbWKwL"
               target="_blank"
             >
-              <FacebookIcon sx={{ color: "#1877F2" }} />
+              <FacebookIcon sx={{ color: iconColors.facebook }} />
             </Link>
             <Link href="https://github.com/eslam-cmd" target="_blank">
-              <GitHubIcon sx={{ color: "#EAEAEA" }} />
+              <GitHubIcon sx={{ color: iconColors.github }} />
             </Link>
             <Link
               href="https://www.linkedin.com/in/Islam-hadaya"
               target="_blank"
             >
-              <LinkedInIcon sx={{ color: "#0A66C2" }} />
+              <LinkedInIcon sx={{ color: iconColors.linkedin }} />
+            </Link>
+            <Link href="https://x.com/eslam_hadaya?s=09" target="_blank">
+              <TwitterIcon sx={{ color: iconColors.twitter }} />
             </Link>
           </Box>
 

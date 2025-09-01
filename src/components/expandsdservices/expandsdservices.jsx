@@ -107,7 +107,7 @@ export default function ExpandSdservices({ toggleTheme, darkMode }) {
 
               <Typography
                 variant="h6"
-                sx={{ fontWeight: "bold", color: colors.buttonText, mb: 1 }}
+                sx={{ fontWeight: "bold", color: colors.buttonText, mb: 1,fontFamily: "'Parisienne', cursive", }}
               >
                 {service.title}
               </Typography>
@@ -115,6 +115,7 @@ export default function ExpandSdservices({ toggleTheme, darkMode }) {
               <Typography
                 variant="body2"
                 sx={{
+                  fontFamily: "'Parisienne', cursive",
                   fontSize: "0.9rem",
                   lineHeight: 1.6,
                   maxWidth: "270px",

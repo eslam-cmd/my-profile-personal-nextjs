@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { 
-  FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaNodeJs 
+  FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaNodeJs
 } from "react-icons/fa";
+import { SiReact, SiExpo } from "react-icons/si";
 import { 
   SiTailwindcss, SiMui, SiAxios, SiTypescript, SiExpress, SiPostgresql, SiPostman, SiNextdotjs, SiJavascript, SiReactrouter, 
   SiSupabase
@@ -14,6 +15,8 @@ export const cards = [
   { id: 14, title: "TypeScript", icon: <SiTypescript size={40} color="#3178c6" /> },
   { id: 6, title: "React", icon: <FaReact size={40} color="#61DBFB" /> },
   { id: 13, title: "Next.js", icon: <SiNextdotjs size={40} color="#fff" /> },
+  { id: 20, title: "React Native", icon: <SiReact size={40} color="#61DBFB" /> },
+  { id: 21, title: "Expo", icon: <SiExpo size={40} color="#000020" /> },
   { id: 10, title: "MUI", icon: <SiMui size={40} color="#007fff" /> },
   { id: 4, title: "Bootstrap", icon: <FaBootstrap size={40} color="#7952b3" /> },
   { id: 3, title: "Tailwind", icon: <SiTailwindcss size={40} color="#38bdf8" /> },

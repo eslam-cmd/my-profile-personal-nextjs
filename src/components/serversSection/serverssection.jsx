@@ -16,6 +16,7 @@ import {
   SiTypescript,
   SiExpress,
   SiPostgresql,
+  SiReact
 } from "react-icons/si";
 
 export default function SkillsRatingBars({ toggleTheme, darkMode }) {
@@ -29,11 +30,12 @@ export default function SkillsRatingBars({ toggleTheme, darkMode }) {
   };
 
   const skills = [
-    { id: 1, name: "React.js", icon: <FaReact />, level: 95 },
+    { id: 1, name: "React.js", icon: <FaReact />, level: 95},
     { id: 2, name: "Next.js", icon: <SiNextdotjs />, level: 95 },
+    { id: 2, name: "React-Native", icon: <SiReact />, level: 95 },
     { id: 3, name: "JavaScript", icon: <FaJsSquare />, level: 85 },
     { id: 4, name: "TypeScript", icon: <SiTypescript />, level: 80 },
-    { id: 5, name: "Express.js", icon: <SiExpress />, level: 88 },
+    { id: 5, name: "Express.js", icon: <SiExpress />, level: 90 },
     { id: 6, name: "PostgreSQL", icon: <SiPostgresql />, level: 87 },
   ];
 
@@ -44,7 +46,7 @@ export default function SkillsRatingBars({ toggleTheme, darkMode }) {
           <Grid item xs={12}>
             <Card
               sx={{
-                width: { xs: "280px",md:"350px",  sm: "450px" },
+                width: { xs: "280px", md: "350px", sm: "450px" },
                 minHeight: 120,
                 display: "flex",
                 alignItems: "center",
@@ -54,7 +56,7 @@ export default function SkillsRatingBars({ toggleTheme, darkMode }) {
                 borderRadius: "16px",
                 border: `1px solid ${colors.borderColor}`,
                 transition: ".5s",
-                mx: "auto", 
+                mx: "auto",
                 "&:hover": {
                   transform: "translateY(-5px)",
                   boxShadow: "0px 6px 15px rgba(25, 118, 210, 0.3)",
