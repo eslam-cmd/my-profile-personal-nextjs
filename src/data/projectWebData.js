@@ -4,7 +4,7 @@ export const projects = [
     title: "Weather App React",
     description:
       "An interactive weather application built with React that provides real-time climate data for cities around the world.",
-    photo: "weather.png",
+    photo: "/web/weather.png",
     linkview: "https://eslam-cmd.github.io/Weather-App-React/",
     linkgithub: "https://github.com/eslam-cmd/Weather-App-React",
     tech: "react",
@@ -15,7 +15,7 @@ export const projects = [
     title: "Prays Times",
     description:
       "A straightforward site that displays accurate prayer times across Syrian governorates, updated automatically.",
-    photo: "pryas times.png",
+    photo: "/web/pryas times.png",
     linkview: "https://eslam-cmd.github.io/Prays-Times/",
     linkgithub: "https://github.com/eslam-cmd/Prays-Times",
     tech: "react",
@@ -26,7 +26,7 @@ export const projects = [
     title: "Hospital Wep",
     description:
       "A hospital portal that provides information about departments, doctors, and allows users to book medical appointments easily.",
-    photo: "hospital.png",
+    photo: "/web/hospital.png",
     linkview: "https://eslam-cmd.github.io/hospital/",
     linkgithub: "https://github.com/eslam-cmd/hospital/tree/master",
     tech: "htmlcssjs",
@@ -36,7 +36,7 @@ export const projects = [
     title: "E-Commerce",
     description:
       "A full-featured e-commerce site built with React, including product browsing, shopping cart, and secure checkout features.",
-    photo: "store react.png",
+    photo: "/web/store react.png",
     linkview: "https://eslam-cmd.github.io/E-Commerce/",
     linkgithub: "https://github.com/eslam-cmd/E-Commerce",
     tech: "react",
@@ -46,7 +46,7 @@ export const projects = [
     title: "E-Learning",
     description:
       "A modern educational platform showcasing courses or learning content, designed using React.",
-    photo: "student.png",
+    photo: "/web/student.png",
     linkview: "https://eslam-cmd.github.io/E-learning/",
     linkgithub: "/project",
     tech: "react",
@@ -56,7 +56,7 @@ export const projects = [
     title: "Tea-Project",
     description:
       "A charming website dedicated to tea lovers, featuring different types of tea, pricing, and an aesthetic layout.",
-    photo: "css.png",
+    photo: "/web/css.png",
     linkview: "https://eslam-cmd.github.io/Tea-Project/",
     linkgithub: "https://github.com/eslam-cmd/Tea-Project",
     tech: "htmlcss",
@@ -66,7 +66,7 @@ export const projects = [
     title: "Nutritional supplements store",
     description:
       "SportUp is a fast, modern website for selling supplements and healthy products. Built with Next.js, React, Tailwind CSS, and Supabase. Simple design, smooth experience, smart product organization.",
-    photo: "store next.png",
+    photo: "/web/store next.png",
     linkview: "https://e-commrece-client.vercel.app",
     linkgithub: "/",
     tech: "next",
@@ -76,7 +76,7 @@ export const projects = [
     title: "Student Administration",
     description:
       "A comprehensive student management system that includes a dashboard for the teacher where they can add student data, and this data appears in each student's IDA comprehensive student management system that includes a dashboard for the teacher where they can add student data, and this data appears in each student's ID. Built with NestJS, Express, and PostgreSQL.",
-    photo: "manager.png",
+    photo: "/web/manager.png",
     linkview: "https://e-school-client.vercel.app",
     linkgithub: "/",
     tech: "next",

@@ -26,10 +26,10 @@ export default function Header({ toggleTheme, darkMode }) {
     pathname === "/contact"
       ? [{ name: "Home", link: "/" }]
       : [
-          { name: "HOME", link: "#home" },
           { name: "SKILS & TOOLS", link: "#skills" },
           { name: "PORTFOLIO", link: "/project" },
           { name: "CONTACT", link: "/contact" },
+          { name: "How is Islam", link: "/about" },
         ];
 
   const handleOpenNavMenu = (event) => {

@@ -13,7 +13,8 @@ import { TypeAnimation } from "react-type-animation";
 import AppsIcon from "@mui/icons-material/Apps";
 import { useTheme } from "@mui/material/styles";
 import TwitterIcon from "@mui/icons-material/Twitter";
-
+import VerifiedIcon from "@mui/icons-material/Verified";
+import PersonIcon from '@mui/icons-material/Person';
 export default function MainSection({ toggleTheme, darkMode }) {
   const theme = useTheme();
   const colors = {
@@ -63,6 +64,19 @@ export default function MainSection({ toggleTheme, darkMode }) {
                   boxShadow: "0 4px 12px rgba(204, 166, 42, 0.63)",
                 },
                 position: "relative",
+                zIndex: 1,
+              }}
+            />
+            <VerifiedIcon
+              sx={{
+                position: "absolute",
+                top: 180,
+                right: 11,
+                color: darkMode ? "#D4AF37" : "#186e96",
+                fontSize: { xs: "32px", sm: "36px", md: "30px" },
+                background: darkMode ? "#0A1F44" : "#fff",
+                borderRadius: "50%",
+                p: 0.2,
                 zIndex: 2,
               }}
             />
@@ -74,6 +88,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
               gap: 0.5,
               flexWrap: "wrap",
               justifyContent: "center",
+              mt: 2,
             }}
           >
             {"Islam  Hadaya".split("").map((char, index) => (
@@ -133,7 +148,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
                 fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
                 backgroundColor: colors.buttonBg,
                 color: colors.buttonText,
-                fontWeight:"600"
+                fontWeight: "600",
               }}
             >
               Download CV
@@ -156,12 +171,13 @@ export default function MainSection({ toggleTheme, darkMode }) {
                   textDecoration: "none",
                   color: colors.buttonText,
                   display: "inline-block",
-                  fontWeight:"600"
+                  fontWeight: "600",
                 }}
               >
                 VIEW PROJECTS
               </Link>
             </Button>
+           
           </Box>
 
           <Box sx={{ display: "flex", gap: 2, marginTop: 4 }}>
@@ -169,7 +185,7 @@ export default function MainSection({ toggleTheme, darkMode }) {
               <EmailIcon sx={{ color: iconColors.email }} />
             </Link>
             <Link
-              href="https://www.facebook.com/islam.hadaya.2025?mibextid=ZbWKwL"
+              href="https://www.facebook.com/islam.hadaya.2025?"
               target="_blank"
             >
               <FacebookIcon sx={{ color: iconColors.facebook }} />
