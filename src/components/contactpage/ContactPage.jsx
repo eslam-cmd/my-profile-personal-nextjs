@@ -1,28 +1,27 @@
 "use client";
 
-import * as React from "react";
-import emailjs from "emailjs-com";
-import { useRef, useState } from "react";
 import {
+  Email as EmailIcon,
+  Facebook as FacebookIcon,
+  GitHub as GitHubIcon,
+  Home as HomeIcon,
+  LinkedIn as LinkedInIcon,
+} from "@mui/icons-material";
+import {
+  Alert,
   Box,
+  Button,
   Card,
   CardActions,
   CardContent,
-  Button,
-  Link,
-  Typography,
   Grid,
-  TextField,
+  Link,
   Snackbar,
-  Alert,
+  TextField,
+  Typography,
 } from "@mui/material";
-import {
-  LinkedIn as LinkedInIcon,
-  GitHub as GitHubIcon,
-  Email as EmailIcon,
-  Facebook as FacebookIcon,
-  Home as HomeIcon,
-} from "@mui/icons-material";
+import emailjs from "emailjs-com";
+import { useRef, useState } from "react";
 
 export default function ContactPage() {
   const formRef = useRef();

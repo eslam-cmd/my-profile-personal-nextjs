@@ -18,14 +18,15 @@ import {
 } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import HomeIcon from "@mui/icons-material/Home";
-import LinkIcon from "@mui/icons-material/Link";
-import BuildIcon from '@mui/icons-material/Build';
-export default function ProjectPage({ toggleTheme, darkMode, projects }) {
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [selectedTech, setSelectedTech] = React.useState("all");
+  const [touchStart, setTouchStart] = React.useState(0);
+  const [touchEnd, setTouchEnd] = React.useState(0);
 
   if (!projects || !Array.isArray(projects)) {
     return (
@@ -40,15 +41,166 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
   );
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === filteredProjects.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+
+      const cardElement = document.querySelector(".project-card-active");
+      if (cardElement) {
+        cardElement.style.transform = "translateX(-100px)";
+        cardElement.style.opacity = "0";
+
+        setTimeout(() => {
+          if (nextIndex >= filteredProjects.length) {
+            return 0;
+          }
+          return nextIndex;
+        }, 300);
+      }
+
+      return nextIndex >= filteredProjects.length ? 0 : nextIndex;
+    });
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? filteredProjects.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const prevIndexValue = prevIndex - 1;
+
+      const cardElement = document.querySelector(".project-card-active");
+      if (cardElement) {
+        cardElement.style.transform = "translateX(100px)";
+        cardElement.style.opacity = "0";
+
+        setTimeout(() => {
+          if (prevIndexValue < 0) {
+            return filteredProjects.length - 1;
+          }
+          return prevIndexValue;
+        }, 300);
+      }
+
+      return prevIndexValue < 0 ? filteredProjects.length - 1 : prevIndexValue;
+    });
+  };
+
+  const NavigationDots = ({ count, activeIndex, onDotClick }) => (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        gap: 1,
+        mt: 3,
+        flexWrap: "wrap",
+      }}
+    >
+      {Array.from({ length: count }).map((_, index) => (
+        <Box
+          key={index}
+          onClick={() => onDotClick(index)}
+          sx={{
+            width: 12,
+            height: 12,
+            borderRadius: "50%",
+            backgroundColor:
+              activeIndex === index ? "#D4AF37" : "rgba(255,255,255,0.3)",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              transform: "scale(1.2)",
+              backgroundColor:
+                activeIndex === index ? "#D4AF37" : "rgba(255,255,255,0.5)",
+            },
+          }}
+        />
+      ))}
+    </Box>
+  );
+
+  const EnhancedNavigationButtons = ({
+    onPrev,
+    onNext,
+    disabledPrev,
+    disabledNext,
+  }) => (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 2,
+        mt: 3,
+      }}
+    >
+      <IconButton
+        onClick={onPrev}
+        disabled={disabledPrev}
+        sx={{
+          backgroundColor: "#0A1F44",
+          color: "#D4AF37",
+          border: "2px solid #D4AF37",
+          padding: "12px",
+          "&:hover": {
+            backgroundColor: "#D4AF37",
+            color: "#000",
+            transform: "scale(1.1)",
+          },
+          "&:disabled": {
+            opacity: 0.5,
+            cursor: "not-allowed",
+          },
+          transition: "all 0.3s ease",
+        }}
+      >
+        <ArrowBackIosIcon />
+      </IconButton>
+
+      <Typography
+        variant="body2"
+        sx={{ color: "#D4AF37", minWidth: "80px", textAlign: "center" }}
+      >
+        {currentIndex + 1} / {filteredProjects.length}
+      </Typography>
+
+      <IconButton
+        onClick={onNext}
+        disabled={disabledNext}
+        sx={{
+          backgroundColor: "#0A1F44",
+          color: "#D4AF37",
+          border: "2px solid #D4AF37",
+          padding: "12px",
+          "&:hover": {
+            backgroundColor: "#D4AF37",
+            color: "#000",
+            transform: "scale(1.1)",
+          },
+          "&:disabled": {
+            opacity: 0.5,
+            cursor: "not-allowed",
+          },
+          transition: "all 0.3s ease",
+        }}
+      >
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Box>
+  );
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      handleNext();
+    }
+
+    if (touchStart - touchEnd < -50) {
+      handlePrev();
+    }
   };
 
   return (
@@ -75,46 +227,10 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
             textTransform: "uppercase",
           }}
         >
-          My Projects
+          Projects Website
         </Typography>
 
-        <Button
-          variant="contained"
-          startIcon={<HomeIcon sx={{ fontSize: { xs: 20, sm: 24, md: 26 } }} />}
-          sx={{
-            width: "100%",
-            backgroundColor: "#0A1F44",
-            color: "#fff",
-            paddingY: { xs: 1.2, sm: 1.6, md: 1.8 },
-            paddingX: { xs: 2, sm: 3 },
-            fontWeight: 600,
-            fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.2rem" },
-            borderRadius: "12px",
-            marginBottom: "24px",
-            boxShadow: "0px 4px 12px rgba(212, 175, 55, 0.3)",
-            transition: "all 0.3s ease-in-out",
-            "&:hover": {
-              backgroundColor: "#D4AF37",
-              color: "#000",
-              boxShadow: "0px 4px 14px rgba(212, 175, 55, 0.56)",
-              transform: "translateY(-2px)",
-            },
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Go to Home Page
-          </Link>
-        </Button>
+        
 
         <Grid
           container
@@ -185,39 +301,41 @@ export default function ProjectPage({ toggleTheme, darkMode, projects }) {
           </Typography>
         ) : isMobile ? (
           <Box
-            sx={{ position: "relative", width: "100%", textAlign: "center" }}
+            sx={{
+              position: "relative",
+              width: "100%",
+              textAlign: "center",
+              overflow: "hidden",
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <IconButton
-              onClick={handlePrev}
+            <Box
               sx={{
-                position: "absolute",
-                left: "10px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: 1,
-                color: "#D4AF37",
+                display: "inline-block",
+                mx: "auto",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                transform: "translateX(0)",
+                opacity: 1,
               }}
+              className="project-card-active"
             >
-              <ArrowBackIosIcon />
-            </IconButton>
-
-            <Box sx={{ display: "inline-block", mx: "auto" }}>
               <ProjectCard project={filteredProjects[currentIndex]} />
             </Box>
 
-            <IconButton
-              onClick={handleNext}
-              sx={{
-                position: "absolute",
-                right: "10px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: 1,
-                color: "#D4AF37",
-              }}
-            >
-              <ArrowForwardIosIcon />
-            </IconButton>
+            <EnhancedNavigationButtons
+              onPrev={handlePrev}
+              onNext={handleNext}
+              disabledPrev={filteredProjects.length <= 1}
+              disabledNext={filteredProjects.length <= 1}
+            />
+
+            <NavigationDots
+              count={filteredProjects.length}
+              activeIndex={currentIndex}
+              onDotClick={(index) => setCurrentIndex(index)}
+            />
           </Box>
         ) : (
           <Grid container spacing={2} justifyContent="center">
@@ -244,12 +362,16 @@ function ProjectCard({ project }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        transition: ".5s",
+        transition: "all 0.3s ease",
         padding: "5px",
         background: "rgba(10, 31, 68, 0.7)",
         borderRadius: "24px",
         boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.3)",
         border: "1px solid #D4AF37",
+        "&:hover": {
+          transform: "translateY(-5px) scale(1.02)",
+          boxShadow: "0px 8px 20px rgba(212, 175, 55, 0.4)",
+        },
       }}
     >
       <CardActionArea>
@@ -271,7 +393,10 @@ function ProjectCard({ project }) {
           <Typography variant="body2" sx={{ fontSize: "14px", color: "#ccc" }}>
             {project.description}
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: "12px", color: "#db1515ff", marginTop:"5px" }}>
+          <Typography
+            variant="body2"
+            sx={{ fontSize: "12px", color: "#db1515ff", marginTop: "5px" }}
+          >
             {project.more}
           </Typography>
         </CardContent>
@@ -282,9 +407,12 @@ function ProjectCard({ project }) {
       >
         <Link href={project.linkview} target="_blank" rel="noopener">
           <IconButton>
-            <LinkIcon sx={{ color: "#D4AF37" }} />
+            <VisibilityIcon sx={{ color: "#D4AF37" }} />
           </IconButton>
-        </Link>
+          
+        </Link><IconButton>
+            <MoreHorizIcon sx={{ color: "#D4AF37" }} />
+          </IconButton>
       </CardActions>
     </Card>
   );
