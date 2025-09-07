@@ -25,8 +25,6 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [touchStart, setTouchStart] = React.useState(0);
-  const [touchEnd, setTouchEnd] = React.useState(0);
 
   if (!projectAppData || !Array.isArray(projectAppData)) {
     return (
@@ -111,10 +109,7 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
             color: "#000",
             transform: "scale(1.1)",
           },
-          "&:disabled": {
-            opacity: 0.5,
-            cursor: "not-allowed",
-          },
+          "&:disabled": { opacity: 0.5, cursor: "not-allowed" },
           transition: "all 0.3s ease",
         }}
       >
@@ -146,10 +141,7 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
             color: "#000",
             transform: "scale(1.1)",
           },
-          "&:disabled": {
-            opacity: 0.5,
-            cursor: "not-allowed",
-          },
+          "&:disabled": { opacity: 0.5, cursor: "not-allowed" },
           transition: "all 0.3s ease",
         }}
       >
@@ -157,24 +149,6 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
       </IconButton>
     </Box>
   );
-
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      handleNext();
-    }
-
-    if (touchStart - touchEnd < -50) {
-      handlePrev();
-    }
-  };
 
   return (
     <section
@@ -200,7 +174,7 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
           mb: 3,
         }}
       >
-        Projects Website
+        Projects Mobile App
       </Typography>
 
       {projectAppData.length === 0 ? (
@@ -218,27 +192,17 @@ export default function ProjectApp({ toggleTheme, darkMode }) {
       ) : isMobile ? (
         <Box
           sx={{
-            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
             width: "100%",
+            minHeight: "60vh", // ارتفاع كافٍ لتوسيط الكرت عموديًا
             textAlign: "center",
             overflow: "hidden",
           }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
-          <Box
-            sx={{
-              display: "inline-block",
-              mx: "auto",
-              transition: "transform 0.3s ease, opacity 0.3s ease",
-              transform: "translateX(0)",
-              opacity: 1,
-            }}
-            className="project-card-active"
-          >
-            <ProjectCard project={projectAppData[currentIndex]} />
-          </Box>
+          <ProjectCard project={projectAppData[currentIndex]} />
 
           <EnhancedNavigationButtons
             onPrev={handlePrev}
@@ -295,10 +259,7 @@ function ProjectCard({ project }) {
           height="180"
           image={project.photo}
           alt={project.title}
-          sx={{
-            objectFit: "cover",
-            borderRadius: "12px",
-          }}
+          sx={{ objectFit: "cover", borderRadius: "12px" }}
         />
         <Divider sx={{ backgroundColor: "#D4AF37", marginTop: "8px", my: 1 }} />
         <CardContent sx={{ flexGrow: 1, p: 2 }}>
@@ -340,29 +301,18 @@ function ProjectCard({ project }) {
       </CardActionArea>
 
       <CardActions
-        sx={{
-          justifyContent: "center",
-          padding: "8px",
-          gap: 1,
-          mt: "auto",
-        }}
+        sx={{ justifyContent: "center", padding: "8px", gap: 1, mt: "auto" }}
       >
         <Link href={project.linkview} target="_blank" rel="noopener">
           <IconButton size="small">
             <DownloadIcon
-              sx={{
-                color: "#D4AF37",
-                fontSize: { xs: "20px", sm: "24px" },
-              }}
+              sx={{ color: "#D4AF37", fontSize: { xs: "20px", sm: "24px" } }}
             />
           </IconButton>
         </Link>
         <IconButton size="small">
           <MoreHorizIcon
-            sx={{
-              color: "#D4AF37",
-              fontSize: { xs: "20px", sm: "24px" },
-            }}
+            sx={{ color: "#D4AF37", fontSize: { xs: "20px", sm: "24px" } }}
           />
         </IconButton>
       </CardActions>

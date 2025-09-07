@@ -24,11 +24,8 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [selectedTech, setSelectedTech] = React.useState("all");
-  const [touchStart, setTouchStart] = React.useState(0);
-  const [touchEnd, setTouchEnd] = React.useState(0);
 
   if (!projects || !Array.isArray(projects)) {
     return (
@@ -171,24 +168,6 @@ export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
     </Box>
   );
 
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      handleNext();
-    }
-
-    if (touchStart - touchEnd < -50) {
-      handlePrev();
-    }
-  };
-
   return (
     <section
       id="project"
@@ -236,16 +215,8 @@ export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
             }}
             sx={{
               textTransform: "none",
-              padding: {
-                xs: "4px 8px",
-                sm: "6px 12px",
-                md: "8px 16px",
-              },
-              fontSize: {
-                xs: "0.7rem",
-                sm: "0.8rem",
-                md: "0.9rem",
-              },
+              padding: { xs: "4px 8px", sm: "6px 12px", md: "8px 16px" },
+              fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
               borderRadius: "6px",
               backgroundColor:
                 selectedTech === category ? "#D4AF37" : "#0A1F44",
@@ -253,10 +224,7 @@ export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
               border: selectedTech === category ? "none" : "1px solid #D4AF37",
               whiteSpace: "nowrap",
               minWidth: "max-content",
-              "&:hover": {
-                backgroundColor: "#D4AF37",
-                color: "#000",
-              },
+              "&:hover": { backgroundColor: "#D4AF37", color: "#000" },
             }}
           >
             {category === "all"
@@ -288,27 +256,17 @@ export default function ProjectWeb({ toggleTheme, darkMode, projects }) {
       ) : isMobile ? (
         <Box
           sx={{
-            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             width: "100%",
+            minHeight: "50vh", // أو "100vh" حسب ما تريد
             textAlign: "center",
             overflow: "hidden",
+            flexDirection: "column",
           }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
-          <Box
-            sx={{
-              display: "inline-block",
-              mx: "auto",
-              transition: "transform 0.3s ease, opacity 0.3s ease",
-              transform: "translateX(0)",
-              opacity: 1,
-            }}
-            className="project-card-active"
-          >
-            <ProjectCard project={filteredProjects[currentIndex]} />
-          </Box>
+          <ProjectCard project={filteredProjects[currentIndex]} />
 
           <EnhancedNavigationButtons
             onPrev={handlePrev}
@@ -364,23 +322,11 @@ function ProjectCard({ project }) {
           height={180}
           image={project.photo}
           alt={project.title}
-          sx={{
-            objectFit: "cover",
-            borderRadius: { xs: "12px", sm: "16px" },
-          }}
+          sx={{ objectFit: "cover", borderRadius: { xs: "12px", sm: "16px" } }}
         />
-        <Divider
-          sx={{
-            backgroundColor: "#D4AF37",
-            my: { xs: 1, sm: 1.5 },
-          }}
-        />
+        <Divider sx={{ backgroundColor: "#D4AF37", my: { xs: 1, sm: 1.5 } }} />
         <CardContent
-          sx={{
-            flexGrow: 1,
-            p: { xs: 1, sm: 2 },
-            pb: { xs: 1, sm: 2 },
-          }}
+          sx={{ flexGrow: 1, p: { xs: 1, sm: 2 }, pb: { xs: 1, sm: 2 } }}
         >
           <Typography
             gutterBottom
@@ -429,19 +375,13 @@ function ProjectCard({ project }) {
         <Link href={project.linkview} target="_blank" rel="noopener">
           <IconButton size="small">
             <VisibilityIcon
-              sx={{
-                color: "#D4AF37",
-                fontSize: { xs: "20px", sm: "24px" },
-              }}
+              sx={{ color: "#D4AF37", fontSize: { xs: "20px", sm: "24px" } }}
             />
           </IconButton>
         </Link>
         <IconButton size="small">
           <MoreHorizIcon
-            sx={{
-              color: "#D4AF37",
-              fontSize: { xs: "20px", sm: "24px" },
-            }}
+            sx={{ color: "#D4AF37", fontSize: { xs: "20px", sm: "24px" } }}
           />
         </IconButton>
       </CardActions>
