@@ -7,7 +7,8 @@ import {
   SiTailwindcss, SiMui, SiAxios, SiTypescript, SiExpress, SiPostgresql, SiPostman, SiNextdotjs, SiJavascript, SiReactrouter, 
   SiSupabase
 } from "react-icons/si";
-
+import { FaPaw } from "react-icons/fa";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 export const cards = [
   { id: 1, title: "HTML", icon: <FaHtml5 size={40} color="#e34c26" /> },
   { id: 2, title: "CSS", icon: <FaCss3Alt size={40} color="#264de4" /> },
@@ -27,4 +28,7 @@ export const cards = [
   { id: 12, title: "Axios", icon: <SiAxios size={40} color="#5a29e4" /> },
   { id: 11, title: "GitHub", icon: <FaGithub size={40} color="#ccc" /> },
   { id: 19, title: "Postman", icon: <SiPostman size={40} color="#ff6c37" /> },
+  { id: 20, title: "Zustand", icon: <FaPaw size={40} color="#a0522d" /> },
+  { id: 21, title: "shadcn/ui", icon: <MdOutlineDashboardCustomize size={40} color="#9333ea" /> },
+
 ];

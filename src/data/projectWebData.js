@@ -96,7 +96,7 @@ export const projects = [
     title: "To-do List (Zustand)",
     description:
       "A simple and modern task management application, built using Next.js, TypeScript, Zustand, and Tailwind CSS. It allows you to add tasks, edit them, mark them as complete, delete them, and filter the display by status — with permanent data storage in the browser.",
-    photo: "/web/todoZustent.png",
+    photo: "/web/todo-zustand.png",
     linkview: "https://to-do-list-zustand-next-tailwind.vercel.app",
     linkgithub: "/",
     tech: "next",
