@@ -81,4 +81,24 @@ export const projects = [
     linkgithub: "/",
     tech: "next",
   },
+  {
+    id: 11,
+    title: "GlowUI",
+    description:
+      "A modern, responsive landing page built with React, Tailwind CSS, Zustand, and shadcn/ui. It features a magic header, animated hero section, features grid, dynamic products section with state management, and a contact form — all styled with a vibrant violet-to-pink gradient theme.",
+    photo: "/web/glowui.png",
+    linkview: "https://glow-ui-fawn.vercel.app",
+    linkgithub: "/",
+    tech: "react",
+  },
+  {
+    id: 12,
+    title: "To-do List (Zustand)",
+    description:
+      "A simple and modern task management application, built using Next.js, TypeScript, Zustand, and Tailwind CSS. It allows you to add tasks, edit them, mark them as complete, delete them, and filter the display by status — with permanent data storage in the browser.",
+    photo: "/web/todoZustent.png",
+    linkview: "https://to-do-list-zustand-next-tailwind.vercel.app",
+    linkgithub: "/",
+    tech: "next",
+  },
 ];
