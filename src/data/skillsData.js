@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 import { SiReact, SiExpo } from "react-icons/si";
 import { 
-  SiTailwindcss, SiMui, SiAxios, SiTypescript, SiExpress, SiPostgresql, SiPostman, SiNextdotjs, SiJavascript, SiReactrouter, 
+  SiTailwindcss, SiMui, SiAxios, SiTypescript, SiExpress, SiPostgresql, SiPostman, SiNextdotjs, SiJavascript, 
   SiSupabase
 } from "react-icons/si";
 import { FaPaw } from "react-icons/fa";
