@@ -14,6 +14,7 @@ export default function ContactSection({ toggleTheme, darkMode }) {
     avatarShadow: "rgba(212, 175, 55, 0.3)",
     nameColor: darkMode ? "#D4AF37" : "#007ffdff",
     glowColor: "#3f51b5",
+    barColor: darkMode ? "#D4AF37" : "#186e96",
   };
   return (
     <section id="contact" style={{ margin: "70px 0",fontFamily: "'Parisienne', cursive", }}>
@@ -26,7 +27,7 @@ export default function ContactSection({ toggleTheme, darkMode }) {
           color: "#f1f5f9",
           background: "#1f212c9d",
           borderRadius: "24px",
-          border: "1px solid #D4AF37",
+          border: colors.barColor,
           boxShadow: "0px 4px 10px rgba(25, 118, 210, 0.16)",
         }}
       >

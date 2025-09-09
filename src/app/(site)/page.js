@@ -5,10 +5,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Box } from "@mui/material";
 
-// تحميل كسول للصفحة الرئيسية
 const Homepage = lazy(() => import("./(pages)/home/page.js"));
 
-// شاشة التحميل
 import LoadingScreen from "../../components/Ultimits/loading.jsx";
 
 export default function Home() {

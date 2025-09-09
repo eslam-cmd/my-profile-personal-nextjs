@@ -16,13 +16,7 @@ body {
 }
 
 /*main section*/
-.font-logo {
-  color: #ebebeb;
-  transition: 0.5s;
-}
-.font-logo:hover {
-  color: #1976d2;
-}
+
 
 .font-box {
   border: 1px solid #ddd;
@@ -73,14 +67,6 @@ body {
 .github-btn:hover {
   color: #ffff;
 }
-.card-tools {
-  background-color: #444;
-  transition: 0.5s;
-}
-.card-tools:hover {
-  color: #dddddd;
-  background-color: #444;
-}
 img:hover {
   transform: scale(1.05);
   transition: all 0.3s ease;
@@ -88,16 +74,6 @@ img:hover {
 .title-card:hover {
   color: #D4AF37;
 }
-.title-card {
-  transition: 0.5s;
-}
-/*end projct section*/
-
-/*tools section*/
-
-/*end tools section*/
-
-/*server section*/
 .jhc{
   background-color: #1f212c9d;
 }

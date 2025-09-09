@@ -16,7 +16,7 @@ import {
   SiTypescript,
   SiExpress,
   SiPostgresql,
-  SiReact
+  SiReact,
 } from "react-icons/si";
 
 export default function SkillsRatingBars({ toggleTheme, darkMode }) {
@@ -30,7 +30,7 @@ export default function SkillsRatingBars({ toggleTheme, darkMode }) {
   };
 
   const skills = [
-    { id: 1, name: "React.js", icon: <FaReact />, level: 95},
+    { id: 1, name: "React.js", icon: <FaReact />, level: 95 },
     { id: 2, name: "Next.js", icon: <SiNextdotjs />, level: 95 },
     { id: 2, name: "React-Native", icon: <SiReact />, level: 95 },
     { id: 3, name: "JavaScript", icon: <FaJsSquare />, level: 85 },
@@ -59,7 +59,9 @@ export default function SkillsRatingBars({ toggleTheme, darkMode }) {
                 mx: "auto",
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: "0px 6px 15px rgba(25, 118, 210, 0.3)",
+                  boxShadow: darkMode
+                    ? "0px 6px 15px rgba(212, 175, 55, 0.35)"
+                    : "0px 6px 20px rgba(0, 0, 0, 0.25)",
                 },
               }}
             >

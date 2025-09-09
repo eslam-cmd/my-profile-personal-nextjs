@@ -9,14 +9,14 @@ import { MdOutlineAnalytics } from "react-icons/md";
 
 export default function ExpandSdservices({ toggleTheme, darkMode }) {
   const theme = useTheme();
-    const colors = {
-      buttonBg: darkMode ? "#0A1F44" : "#186e96",
-      buttonText: darkMode ? "#D4AF37" : "#ffff",
-      avatarBorder: "#D4AF37",
-      avatarShadow: "rgba(212, 175, 55, 0.3)",
-      nameColor:darkMode ? "#D4AF37" : "#186e96",
-      glowColor: "#3f51b5",
-    };
+  const colors = {
+    buttonBg: darkMode ? "#0A1F44" : "#186e96",
+    buttonText: darkMode ? "#D4AF37" : "#ffff",
+    avatarBorder: "#D4AF37",
+    avatarShadow: "rgba(212, 175, 55, 0.3)",
+    nameColor: darkMode ? "#D4AF37" : "#186e96",
+    glowColor: "#3f51b5",
+  };
   const services = [
     {
       id: 1,
@@ -93,11 +93,13 @@ export default function ExpandSdservices({ toggleTheme, darkMode }) {
                 borderRadius: "24px",
                 boxShadow: "0px 4px 10px rgba(212, 175, 55, 0.2)",
                 border: "1px solid ",
-                borderColor:colors.buttonBg,
+                borderColor: colors.buttonBg,
                 textAlign: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
-                  boxShadow: "0px 8px 20px rgba(25, 118, 210, 0.3)",
+                  boxShadow: darkMode
+                    ? "0px 6px 15px rgba(212, 175, 55, 0.35)"
+                    : "0px 6px 28px rgba(0, 0, 0, 0.25)",
                 },
               }}
             >
@@ -107,7 +109,12 @@ export default function ExpandSdservices({ toggleTheme, darkMode }) {
 
               <Typography
                 variant="h6"
-                sx={{ fontWeight: "bold", color: colors.buttonText, mb: 1,fontFamily: "'Parisienne', cursive", }}
+                sx={{
+                  fontWeight: "bold",
+                  color: colors.buttonText,
+                  mb: 1,
+                  fontFamily: "'Parisienne', cursive",
+                }}
               >
                 {service.title}
               </Typography>

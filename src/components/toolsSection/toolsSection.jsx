@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 import Divider from "@mui/material/Divider";
-
 import { cards } from "../../data/skillsData";
 import { useTheme } from "@emotion/react";
 
@@ -60,12 +59,22 @@ export default function ToolsSection({ toggleTheme, darkMode }) {
             <Grid xs={6} sm={4} lg={2} key={card.id}>
               <Card
                 sx={{
-                  boxShadow: "0px 4px 10px rgba(13, 21, 29, 0.37)",
+                  backgroundColor: darkMode ? "#0A1F44" : "#00547aff",
+                  boxShadow: darkMode
+                    ? "0px 4px 9px rgba(212, 175, 55, 0.2)"
+                    : "0px 4px 10px rgba(0, 0, 0, 0.15)",
                   textAlign: "center",
                   width: "150px",
                   position: "relative",
                   overflow: "hidden",
                   borderRadius: "8px",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    boxShadow: darkMode
+                      ? "0px 6px 15px rgba(212, 175, 55, 0.35)"
+                      : "0px 6px 20px rgba(0, 0, 0, 0.25)",
+                  },
                 }}
               >
                 <CardActionArea>
